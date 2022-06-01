@@ -6,12 +6,15 @@ import javax.persistence.Persistence;
 
 import dao.DAOfactory;
 
+import dao.UnidadesDAO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.Unidades;
+
+import java.util.List;
 
 public class Main extends Application {
 
@@ -43,7 +46,17 @@ public class Main extends Application {
 //		EntityManager em = emf.createEntityManager();
 
 		DAOfactory<Unidades> dao = new DAOfactory<>(Unidades.class);
-		dao.incluirAtomico(u1).fechar();
+		dao.incluirAtomico(u1);
+        dao.incluirAtomico(u2);
+        dao.incluirAtomico(u3);
+
+        UnidadesDAO daoU = new UnidadesDAO();
+        List<Unidades> unidades = daoU.obterTodos();
+
+        for (Unidades unidade: unidades){
+            System.out.println("ID: " + unidade.getCodigo() + ", Nome: " + unidade.getDescricao() +
+                    "Local: " + unidade.getLocal());
+        }
 
 //		em.getTransaction().begin();
 //		em.persist(u1);
@@ -53,9 +66,9 @@ public class Main extends Application {
 
 
 
-		System.out.println(u1);
-		System.out.println(u2);
-		System.out.println(u3);
+//		System.out.println(u1);
+//		System.out.println(u2);
+//		System.out.println(u3);
 
 //		em.close();
 //		emf.close();
