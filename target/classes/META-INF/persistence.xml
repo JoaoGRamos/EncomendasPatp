@@ -7,7 +7,7 @@
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/testepatp?useSSL=true&amp;serverTimezone=UTC" />
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="1234" />
+			<property name="javax.persistence.jdbc.password" value="Noiskita546" />
 			<property name="javax.persistence.jdbc.allowPublicKeyRetrival" value="true" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<!-- https://docs.jboss.org/hibernate/orm/5.4/javadocs/org/hibernate/dialect/package-summary.html -->
