@@ -45,4 +45,7 @@ public class DAOfactory<E> {
         return this.abrirT().incluir(entidade).fecharT();
     }
 
+    public void fechar(){
+        em.close();
+    }
 }

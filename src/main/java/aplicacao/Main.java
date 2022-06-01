@@ -39,21 +39,26 @@ public class Main extends Application {
 		Unidades u2 = new Unidades(null, "Unidade de tratamento de Getúlio Vargas", "Getúlio Vargas");
 		Unidades u3 = new Unidades(null, "Unidade de tratamento de Erechin", "Erechin");
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("testepatp");
-		EntityManager em = emf.createEntityManager();
+//		EntityManagerFactory emf = Persistence.createEntityManagerFactory("testepatp");
+//		EntityManager em = emf.createEntityManager();
 
-		em.getTransaction().begin();
-		em.persist(u1);
-		em.persist(u2);
-		em.persist(u3);
-		em.getTransaction().commit();
+		DAOfactory<Unidades> dao = new DAOfactory<>(Unidades.class);
+		dao.incluirAtomico(u1).fechar();
+
+//		em.getTransaction().begin();
+//		em.persist(u1);
+//		em.persist(u2);
+//		em.persist(u3);
+//		em.getTransaction().commit();
+
+
 
 		System.out.println(u1);
 		System.out.println(u2);
 		System.out.println(u3);
 
-		em.close();
-		emf.close();
+//		em.close();
+//		emf.close();
     }
 
 
