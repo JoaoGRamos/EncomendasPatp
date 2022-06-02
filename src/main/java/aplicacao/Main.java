@@ -42,8 +42,6 @@ public class Main extends Application {
 		Unidades u2 = new Unidades(null, "Unidade de tratamento de Getúlio Vargas", "Getúlio Vargas");
 		Unidades u3 = new Unidades(null, "Unidade de tratamento de Erechin", "Erechin");
 
-//		EntityManagerFactory emf = Persistence.createEntityManagerFactory("testepatp");
-//		EntityManager em = emf.createEntityManager();
 
 		DAOfactory<Unidades> dao = new DAOfactory<>(Unidades.class);
 		dao.incluirAtomico(u1);
@@ -56,7 +54,19 @@ public class Main extends Application {
         for (Unidades unidade: unidades){
             System.out.println("ID: " + unidade.getCodigo() + ", Nome: " + unidade.getDescricao() +
                     "Local: " + unidade.getLocal());
+            if (unidade.getCodigo() == 7) {
+                daoU.deletar(unidade);
+            }
         }
+
+        unidades = daoU.obterTodos();
+
+        for (Unidades unidade: unidades) {
+            System.out.println("ID: " + unidade.getCodigo() + ", Nome: " + unidade.getDescricao() +
+                    "Local: " + unidade.getLocal());
+        }
+
+
 
 //		em.getTransaction().begin();
 //		em.persist(u1);

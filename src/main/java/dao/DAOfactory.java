@@ -12,6 +12,8 @@ public class DAOfactory<E> {
     private EntityManager em;
     private Class<E> classe;
 
+    private Class tClass;
+
     static {
         try {
             emf = Persistence.createEntityManagerFactory("testepatp");
@@ -38,6 +40,12 @@ public class DAOfactory<E> {
         return this;
     }
 
+// OBTER NOVA VERSÃO DE UMA LINHA.
+    public DAOfactory refresh(E entidade) {
+        em.refresh(entidade);
+        return this;
+    }
+
     public DAOfactory<E> incluir(E entidade) {
         em.persist(entidade);
         return this;
@@ -45,6 +53,13 @@ public class DAOfactory<E> {
 
     public DAOfactory<E> incluirAtomico(E entidade) {
         return this.abrirT().incluir(entidade).fecharT();
+    }
+
+    public DAOfactory<E> deletar(E entidade) {
+        abrirT();
+        em.remove(entidade);
+        fecharT();
+        return this;
     }
 
     public List<E> obterTodos(){
