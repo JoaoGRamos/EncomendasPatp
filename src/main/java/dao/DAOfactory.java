@@ -46,6 +46,17 @@ public class DAOfactory<E> {
         return this;
     }
 
+    public DAOfactory<E> editar(E entidade) {
+        abrirT();
+        em.merge(entidade);
+        fecharT();
+        return this;
+    }
+
+    public DAOfactory<E> find(Object primaryKey){
+        return em.find(this.getClass(), primaryKey);
+    }
+
     public DAOfactory<E> incluir(E entidade) {
         em.persist(entidade);
         return this;
@@ -76,6 +87,16 @@ public class DAOfactory<E> {
         query.setMaxResults(qtde);
         query.setFirstResult(deslocamento);
         return query.getResultList();
+    }
+
+    public E show(Object collumn, Object value) {
+        if (classe == null){
+            throw new UnsupportedOperationException("Classe nula.");
+        }
+
+        String jpql = "select e from " + classe.getName() + " e where "+ collumn + " = " + value;
+        TypedQuery<E> query = em.createQuery(jpql, classe);
+        return query.getSingleResult();
     }
 
     public void fechar(){

@@ -54,12 +54,19 @@ public class Main extends Application {
         for (Unidades unidade: unidades){
             System.out.println("ID: " + unidade.getCodigo() + ", Nome: " + unidade.getDescricao() +
                     "Local: " + unidade.getLocal());
-            if (unidade.getCodigo() == 7) {
-                daoU.deletar(unidade);
+//            if (unidade.getCodigo() == 8) {
+//                daoU.deletar(unidade);
+//            }
+            if (unidade.getCodigo() == 1) {
+                unidade.setDescricao(unidade.getDescricao()+ "a");
+                daoU.editar(unidade);
             }
         }
 
         unidades = daoU.obterTodos();
+
+        Unidades tmp = daoU.show("codigo", 1);
+        System.out.println(tmp.getDescricao());
 
         for (Unidades unidade: unidades) {
             System.out.println("ID: " + unidade.getCodigo() + ", Nome: " + unidade.getDescricao() +
