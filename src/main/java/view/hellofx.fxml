@@ -7,13 +7,13 @@
 <?import javafx.scene.layout.VBox?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Controller">
-   <children>
-      <AnchorPane prefHeight="406.0" prefWidth="600.0">
-         <children>
-            <Label fx:id="label" layoutX="270.0" layoutY="86.0" text="Bem-Vindo" />
-            <ComboBox fx:id="cbUnidades" layoutX="225.0" layoutY="149.0" prefWidth="150.0" />
-            <Button fx:id="btEntrar" layoutX="276.0" layoutY="213.0" mnemonicParsing="false" text="Entrar" />
-         </children>
-      </AnchorPane>
-   </children>
+	<children>
+		<AnchorPane prefHeight="406.0" prefWidth="600.0">
+			<children>
+				<Label fx:id="label" layoutX="270.0" layoutY="86.0" text="Bem-Vindo" />
+				<ComboBox fx:id="cbUnidades" layoutX="225.0" layoutY="149.0" prefWidth="150.0" />
+				<Button fx:id="btEntrar" layoutX="276.0" layoutY="213.0" mnemonicParsing="false" text="Entrar" />
+			</children>
+		</AnchorPane>
+	</children>
 </VBox>

@@ -1,9 +1,5 @@
 package aplicacao;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import dao.DAOfactory;
 
 import dao.UnidadesDAO;
@@ -45,16 +41,16 @@ public class Main extends Application {
 
 
 		DAOfactory<Unidades> dao = new DAOfactory<>(Unidades.class);
-		dao.incluirAtomico(u1);
-        dao.incluirAtomico(u2);
-        dao.incluirAtomico(u3);
+//		dao.incluirAtomico(u1);
+//        dao.incluirAtomico(u2);
+//        dao.incluirAtomico(u3);
 
         UnidadesDAO daoU = new UnidadesDAO();
         List<Unidades> unidades = daoU.obterTodos();
 
         for (Unidades unidade: unidades){
             System.out.println("ID: " + unidade.getCodigo() + ", Nome: " + unidade.getDescricao() +
-                    "Local: " + unidade.getLocal());
+                    " Local: " + unidade.getLocal());
 //            if (unidade.getCodigo() == 8) {
 //                daoU.deletar(unidade);
 //            }
@@ -66,30 +62,16 @@ public class Main extends Application {
 
         unidades = daoU.obterTodos();
 
-        Unidades tmp = daoU.show("codigo", 1);
+        Unidades tmp = daoU.show("codigo", 100);
         System.out.println(tmp.getDescricao());
 
         for (Unidades unidade: unidades) {
             System.out.println("ID: " + unidade.getCodigo() + ", Nome: " + unidade.getDescricao() +
-                    "Local: " + unidade.getLocal());
+                    " Local: " + unidade.getLocal());
         }
 
 
 
-//		em.getTransaction().begin();
-//		em.persist(u1);
-//		em.persist(u2);
-//		em.persist(u3);
-//		em.getTransaction().commit();
-
-
-
-//		System.out.println(u1);
-//		System.out.println(u2);
-//		System.out.println(u3);
-
-//		em.close();
-//		emf.close();
     }
 
 
