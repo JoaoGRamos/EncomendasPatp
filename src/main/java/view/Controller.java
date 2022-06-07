@@ -30,6 +30,9 @@ public class Controller {
     private ComboBox<Unidades> cbUnidades;
 
     private List<Unidades> unidades = new ArrayList<>();
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
     private ObservableList<Unidades> obsUnidades;
 
@@ -52,12 +55,11 @@ public class Controller {
 
     @FXML
     void acaoBotao(ActionEvent event) throws IOException {
-        Stage cadastro = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/view/CentralController.fxml"));
-        cadastro = (Stage)((Node)event.getSource()).getScene().getWindow();
-        cadastro.setTitle("Rastreio de Encomendas");
-        cadastro.setScene(new Scene(root));
-        cadastro.show();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Rastreio de Encomendas");
+        stage.setScene(new Scene(root));
+        stage.show();
 
     }
 
