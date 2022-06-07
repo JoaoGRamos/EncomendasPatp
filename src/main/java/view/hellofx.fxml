@@ -12,7 +12,7 @@
 			<children>
 				<Label fx:id="label" layoutX="160.0" layoutY="61.0" text="Bem-Vindo" />
 				<ComboBox fx:id="cbUnidades" layoutX="115.0" layoutY="119.0" prefWidth="150.0" promptText="Escolha a Unidade" />
-				<Button fx:id="btEntrar" layoutX="166.0" layoutY="185.0" mnemonicParsing="false" text="Entrar" />
+				<Button fx:id="btEntrar" layoutX="166.0" layoutY="185.0" mnemonicParsing="false" onAction="#acaoBotao" text="Entrar" />
 			</children>
 		</AnchorPane>
 	</children>

@@ -55,14 +55,12 @@ public class Controller {
 
     @FXML
     void acaoBotao(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/view/CentralController.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/centralfx.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Rastreio de Encomendas");
         stage.setScene(new Scene(root));
         stage.show();
 
     }
-
-
 
 }

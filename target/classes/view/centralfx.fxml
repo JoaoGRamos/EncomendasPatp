@@ -23,7 +23,7 @@
           <Menu mnemonicParsing="false" text="Cadastro">
             <items>
               <MenuItem fx:id="miAddRemetente" mnemonicParsing="false" onAction="#addRemetente" text="Remetente" />
-                  <MenuItem fx:id="miAddDestinatario" mnemonicParsing="false" onAction="#addDestinatario" text="Destinatario" />
+              <MenuItem fx:id="miAddDestinatario" mnemonicParsing="false" onAction="#addDestinatario" text="Destinatario" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Editar">

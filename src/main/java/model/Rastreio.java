@@ -25,6 +25,9 @@ public class Rastreio implements Serializable{
     @Column
     private Enum status;
 
+    @Column
+    private Integer rota;
+
     public Rastreio() {
 
     }
@@ -37,7 +40,9 @@ public class Rastreio implements Serializable{
         this.dataHoraEntrada = dataHoraEntrada;
         this.dataHoraSaida = dataHoraSaida;
         this.status = status;
+        this.rota = rota;
     }
+
 
     public Integer getId() {
         return id;
@@ -86,4 +91,8 @@ public class Rastreio implements Serializable{
     public void setStatus(Enum status) {
         this.status = status;
     }
+
+    public Integer getRota() { return rota; }
+
+    public void setRota(Integer rota) { this.rota = rota; }
 }
