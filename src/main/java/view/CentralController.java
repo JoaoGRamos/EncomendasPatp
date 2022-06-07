@@ -39,7 +39,11 @@ public class CentralController {
 
     @FXML
     void addDestinatario(ActionEvent event) throws IOException {
-
+        Parent root = FXMLLoader.load(getClass().getResource("/view/destinatariofx.fxml"));
+        stage = (Stage) mbPrincipal.getScene().getWindow();
+        stage.setTitle("Cadastro de Destinatario!");
+        stage.setScene(new Scene(root));
+        stage.show();
 
     }
 
