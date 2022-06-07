@@ -23,10 +23,11 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
     	
-    	usingHibernate();
+//    	usingHibernate();
+        primaryStage.setResizable(false);
 		Parent root = FXMLLoader.load(getClass().getResource("/view/hellofx.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 400, 300));
+        primaryStage.setTitle("Rastreio de Encomendas");
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 
