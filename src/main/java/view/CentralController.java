@@ -58,13 +58,22 @@ public class CentralController {
     }
 
     @FXML
-    void edDestinatario(ActionEvent event) {
+    void edDestinatario(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/editardestinatariofx.fxml"));
+        stage = (Stage) mbPrincipal.getScene().getWindow();
+        stage.setTitle("Editar Destinatario!");
+        stage.setScene(new Scene(root));
+        stage.show();
 
     }
 
     @FXML
-    void edRemetente(ActionEvent event) {
-
+    void edRemetente(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/editarremetentefx.fxml"));
+        stage = (Stage) mbPrincipal.getScene().getWindow();
+        stage.setTitle("Editar Remetente!");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
 }
