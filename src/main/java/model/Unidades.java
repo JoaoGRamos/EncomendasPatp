@@ -52,6 +52,6 @@ public class Unidades implements Serializable{
 
     @Override
     public String toString() {
-        return "Unidade [id=" + codigo + ", descricao=" + descricao + ", local=" + local + "]";
+        return descricao;
     }
 }

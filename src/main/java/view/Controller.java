@@ -1,11 +1,12 @@
 package view;
 
+import dao.UnidadesDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import model.Unidades;
-import dao.DAOfactory;
+import dao.UnidadesDAO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,19 +30,17 @@ public class Controller {
        carregarUnidades();
     }
 
+    public void ListarTodos() {
+        UnidadesDAO unid = new UnidadesDAO();
+        List<Unidades> list = unid.obterTodos();
+        obsUnidades = FXCollections.observableArrayList(list);
+        cbUnidades.setItems(obsUnidades);
+    }
+
     public void carregarUnidades() {
 
-        Unidades unidade = new Unidades();
+        ListarTodos();
 
-        unidade.getDescricao();
-
-        unidades.add(unidade);
-
-        obsUnidades = FXCollections.observableArrayList(unidade);
-
-        cbUnidades.setItems(obsUnidades);
-        cbUnidades.setId();
-        cbUnidades.getId()
     }
 
     
