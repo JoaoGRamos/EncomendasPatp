@@ -12,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import model.Unidades;
-import dao.UnidadesDAO;
 
 import java.io.IOException;
 import java.util.ArrayList;

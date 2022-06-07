@@ -77,4 +77,9 @@ public class Destinatario implements Serializable {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
+
+    @Override
+    public String toString() {
+        return id + " " + nome;
+    }
 }
