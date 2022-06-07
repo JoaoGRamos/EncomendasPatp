@@ -2,6 +2,7 @@ package model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 
@@ -9,6 +10,7 @@ import java.io.Serializable;
 public class Destinatario implements Serializable {
 
     @Id
+    @GeneratedValue
     private Integer id;
 
     @Column
@@ -23,18 +25,18 @@ public class Destinatario implements Serializable {
     @Column
     private String endereco;
 
-    public Destinatario() {
-
-    }
-
-    public Destinatario(Integer id, String nome, String cpf, String telefone, String endereco) {
-        super();
-        this.id = id;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.telefone = telefone;
-        this.endereco = endereco;
-    }
+//    public Destinatario() {
+//
+//    }
+//
+//    public Destinatario(Integer id, String nome, String cpf, String telefone, String endereco) {
+//        super();
+//        this.id = id;
+//        this.nome = nome;
+//        this.cpf = cpf;
+//        this.telefone = telefone;
+//        this.endereco = endereco;
+//    }
 
     public Integer getId() {
         return id;

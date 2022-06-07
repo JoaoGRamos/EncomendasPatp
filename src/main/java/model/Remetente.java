@@ -1,12 +1,17 @@
 package model;
 
+
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 
+@Entity
 public class Remetente implements Serializable{
 
     @Id
+    @GeneratedValue
     private Integer id;
 
     @Column
@@ -18,17 +23,17 @@ public class Remetente implements Serializable{
     @Column
     private String telefone;
 
-    public Remetente() {
-
-    }
-
-    public Remetente(Integer id, String nome, String cpf, String telefone) {
-        super();
-        this.id = id;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.telefone = telefone;
-    }
+//    public Remetente() {
+//
+//    }
+//
+//    public Remetente(Integer id, String nome, String cpf, String telefone) {
+//        super();
+//        this.id = id;
+//        this.nome = nome;
+//        this.cpf = cpf;
+//        this.telefone = telefone;
+//    }
 
     public Integer getId() {
         return id;

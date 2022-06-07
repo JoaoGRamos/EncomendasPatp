@@ -1,5 +1,6 @@
 package view;
 
+import dao.DAOfactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Remetente;
+
 
 import java.io.IOException;
 
@@ -45,8 +48,40 @@ public class RemetenteController {
     }
 
     @FXML
-    void acaoSalvar(ActionEvent event) {
+    void acaoSalvar(ActionEvent event) throws IOException {
+
+        if (!(tfNome.getText() == "" || tfCpf.getText() == "" || tfTelefone.getText() == "")){
+            try {
+                DAOfactory<Remetente> dao = new DAOfactory<>(Remetente.class);
+                Remetente r1 = new Remetente();
+
+                r1.setNome(tfNome.getText());
+                r1.setCpf(tfCpf.getText());
+                r1.setTelefone(tfTelefone.getText());
+                dao.incluirAtomico(r1);
+
+
+                Parent root = FXMLLoader.load(getClass().getResource("/view/salvou.fxml"));
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setTitle("Salvou!");
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (Exception e) {
+                Parent root = FXMLLoader.load(getClass().getResource("/view/naosalvou.fxml"));
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setTitle("Nao Salvou!");
+                stage.setScene(new Scene(root));
+                stage.show();
+            }
+
+        }
+        else {
+            Parent root = FXMLLoader.load(getClass().getResource("/view/naosalvou.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setTitle("Nao Salvou!");
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
 
     }
-
 }

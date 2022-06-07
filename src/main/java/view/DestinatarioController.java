@@ -1,5 +1,6 @@
 package view;
 
+import dao.DAOfactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Destinatario;
 
 import java.io.IOException;
 
@@ -48,8 +50,43 @@ public class DestinatarioController {
     }
 
     @FXML
-    void acaoSalvar(ActionEvent event) {
+    void acaoSalvar(ActionEvent event) throws IOException {
+
+       if (!(tfNome.getText() == "" || tfCpf.getText() == "" || tfTelefone.getText() == "")){
+            try {
+                DAOfactory<Destinatario> dao = new DAOfactory<>(Destinatario.class);
+                Destinatario r1 = new Destinatario();
+
+                r1.setNome(tfNome.getText());
+                r1.setCpf(tfCpf.getText());
+                r1.setTelefone(tfTelefone.getText());
+                r1.setEndereco(tfEndereco.getText());
+                dao.incluirAtomico(r1);
+
+
+                Parent root = FXMLLoader.load(getClass().getResource("/view/salvou.fxml"));
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setTitle("Salvou!");
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (Exception e) {
+                Parent root = FXMLLoader.load(getClass().getResource("/view/naosalvou.fxml"));
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setTitle("Nao Salvou!");
+                stage.setScene(new Scene(root));
+                stage.show();
+            }
 
     }
+        else {
+            Parent root = FXMLLoader.load(getClass().getResource("/view/naosalvou.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setTitle("Nao Salvou!");
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
 
+    }
 }
+
+

@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.time.LocalDateTime;

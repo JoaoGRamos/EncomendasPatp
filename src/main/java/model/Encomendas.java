@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -8,6 +9,7 @@ import java.time.LocalDate;
 public class Encomendas implements Serializable{
 
     @Id
+    @GeneratedValue
     private Integer codigo;
 
     @Column
