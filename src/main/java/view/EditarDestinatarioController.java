@@ -20,6 +20,9 @@ import model.Destinatario;
 import java.io.IOException;
 import java.util.List;
 
+import static java.lang.Integer.parseInt;
+import static java.lang.Integer.parseUnsignedInt;
+
 public class EditarDestinatarioController {
 
     @FXML
@@ -98,6 +101,7 @@ public class EditarDestinatarioController {
                 DestinatarioDAO dao = new DestinatarioDAO(Destinatario.class);
                 Destinatario r1 = new Destinatario();
 
+                r1.setId(parseInt(txId.getText()));
                 r1.setNome(tfNome.getText());
                 r1.setCpf(tfCpf.getText());
                 r1.setTelefone(tfTelefone.getText());
