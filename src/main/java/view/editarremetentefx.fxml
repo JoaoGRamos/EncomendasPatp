@@ -20,7 +20,8 @@
                 <Label layoutX="45.0" layoutY="224.0" text="Telefone" />
                 <Button fx:id="btSalvar" layoutX="508.0" layoutY="352.0" mnemonicParsing="false" onAction="#acaoSalvar" prefHeight="25.0" prefWidth="63.0" text="Salvar" />
                 <Button fx:id="btCancelar" layoutX="435.0" layoutY="352.0" mnemonicParsing="false" onAction="#acaoCancelar" prefHeight="25.0" prefWidth="63.0" text="Cancelar" />
-            <ComboBox layoutX="45.0" layoutY="52.0" prefHeight="25.0" prefWidth="284.0" promptText="Selecione o ID" />
+            <ComboBox fx:id="cbId" layoutX="45.0" layoutY="52.0" onAction="#selecionarId" prefHeight="25.0" prefWidth="284.0" promptText="Selecione o ID" />
+            <TextField fx:id="tfId" disable="true" editable="false" layoutX="349.0" layoutY="52.0" visible="false" />
             </children>
         </AnchorPane>
     </children>

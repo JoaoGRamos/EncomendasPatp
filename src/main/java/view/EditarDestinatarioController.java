@@ -47,7 +47,7 @@ public class EditarDestinatarioController {
     private TextField tfTelefone;
 
     @FXML
-    private TextField txId;
+    private TextField tfId;
 
     private ObservableList<Destinatario> obsDestinatario;
     @FXML
@@ -72,7 +72,7 @@ public class EditarDestinatarioController {
         DestinatarioDAO dao = new DestinatarioDAO(Destinatario.class);
         int e1 = cbID.getSelectionModel().getSelectedIndex();
         Destinatario id = (Destinatario)cbID.getItems().get(e1);
-        txId.setText(String.valueOf(id.getId()));
+        tfId.setText(String.valueOf(id.getId()));
         tfNome.setText(id.getNome());
         tfCpf.setText(id.getCpf());
         tfTelefone.setText(id.getTelefone());
@@ -101,7 +101,7 @@ public class EditarDestinatarioController {
                 DestinatarioDAO dao = new DestinatarioDAO(Destinatario.class);
                 Destinatario r1 = new Destinatario();
 
-                r1.setId(parseInt(txId.getText()));
+                r1.setId(parseInt(tfId.getText()));
                 r1.setNome(tfNome.getText());
                 r1.setCpf(tfCpf.getText());
                 r1.setTelefone(tfTelefone.getText());
