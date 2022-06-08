@@ -4,12 +4,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import javax.persistence.Query;
 import java.util.List;
 
 public class DAOfactory<E> {
 
-    private static EntityManagerFactory emf;
-    private EntityManager em;
+    public static EntityManagerFactory emf;
+    public EntityManager em;
     private Class<E> classe;
 
     private Class tClass;

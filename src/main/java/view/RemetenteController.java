@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -61,26 +62,24 @@ public class RemetenteController {
                 dao.incluirAtomico(r1);
 
 
-                Parent root = FXMLLoader.load(getClass().getResource("/view/salvou.fxml"));
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setTitle("Salvou!");
-                stage.setScene(new Scene(root));
-                stage.show();
+                Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+                alerta.setTitle("Aviso");
+                alerta.setHeaderText("Dados salvos com sucesso!");
+                alerta.show();
+
             } catch (Exception e) {
-                Parent root = FXMLLoader.load(getClass().getResource("/view/naosalvou.fxml"));
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setTitle("Nao Salvou!");
-                stage.setScene(new Scene(root));
-                stage.show();
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setTitle("Aviso");
+                alerta.setHeaderText("Os dados não foram salvos no banco!");
+                alerta.show();
             }
 
         }
         else {
-            Parent root = FXMLLoader.load(getClass().getResource("/view/naosalvou.fxml"));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setTitle("Nao Salvou!");
-            stage.setScene(new Scene(root));
-            stage.show();
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Aviso");
+            alerta.setHeaderText("Os dados não foram salvos no banco!");
+            alerta.show();
         }
 
     }

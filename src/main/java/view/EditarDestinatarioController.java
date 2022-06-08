@@ -1,6 +1,6 @@
 package view;
 
-import dao.DAOfactory;
+import dao.DestinatarioDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,12 +9,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Destinatario;
-
 
 
 import java.io.IOException;
@@ -43,25 +43,37 @@ public class EditarDestinatarioController {
     @FXML
     private TextField tfTelefone;
 
+    @FXML
+    private TextField txId;
+
     private ObservableList<Destinatario> obsDestinatario;
     @FXML
-    public void initilize(){
+    public void initialize() {
         carregarDestino();
     }
 
     public void ListarTodos() {
-        DAOfactory<Destinatario> dao = new DAOfactory<>(Destinatario.class);
+        DestinatarioDAO dao = new DestinatarioDAO(Destinatario.class);
         List<Destinatario> list = dao.obterTodos();
         obsDestinatario = FXCollections.observableArrayList(list);
-        cbID.setItems(obsDestinatario);
+
     }
 
     public void carregarDestino(){
         ListarTodos();
+        cbID.setItems(obsDestinatario);
     }
 
     @FXML
     void selecionarId(ActionEvent event) {
+        DestinatarioDAO dao = new DestinatarioDAO(Destinatario.class);
+        int e1 = cbID.getSelectionModel().getSelectedIndex();
+        Destinatario id = (Destinatario)cbID.getItems().get(e1);
+        txId.setText(String.valueOf(id.getId()));
+        tfNome.setText(id.getNome());
+        tfCpf.setText(id.getCpf());
+        tfTelefone.setText(id.getTelefone());
+        tfEndereco.setText(id.getEndereco());
 
     }
 
@@ -82,39 +94,39 @@ public class EditarDestinatarioController {
 
         if (!(tfNome.getText() == "" || tfCpf.getText() == "" || tfTelefone.getText() == "")){
             try {
-                DAOfactory<Destinatario> dao = new DAOfactory<>(Destinatario.class);
+
+                DestinatarioDAO dao = new DestinatarioDAO(Destinatario.class);
                 Destinatario r1 = new Destinatario();
 
                 r1.setNome(tfNome.getText());
                 r1.setCpf(tfCpf.getText());
                 r1.setTelefone(tfTelefone.getText());
                 r1.setEndereco(tfEndereco.getText());
-                dao.incluirAtomico(r1);
+                dao.editar(r1);
 
 
-                Parent root = FXMLLoader.load(getClass().getResource("/view/salvou.fxml"));
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setTitle("Salvou!");
-                stage.setScene(new Scene(root));
-                stage.show();
+                Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+                alerta.setTitle("Aviso");
+                alerta.setHeaderText("Dados salvos com sucesso!");
+                alerta.show();
+
             } catch (Exception e) {
-                Parent root = FXMLLoader.load(getClass().getResource("/view/naosalvou.fxml"));
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setTitle("Nao Salvou!");
-                stage.setScene(new Scene(root));
-                stage.show();
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setTitle("Aviso");
+                alerta.setHeaderText("Os dados não foram salvos no banco!");
+                alerta.show();
+
             }
 
         }
         else {
-            Parent root = FXMLLoader.load(getClass().getResource("/view/naosalvou.fxml"));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setTitle("Nao Salvou!");
-            stage.setScene(new Scene(root));
-            stage.show();
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Aviso");
+            alerta.setHeaderText("Os dados não foram salvos no banco!");
+            alerta.show();
+
         }
 
 
     }
-
 }

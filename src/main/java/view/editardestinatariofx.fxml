@@ -23,6 +23,7 @@
                 <Label layoutX="45.0" layoutY="268.0" text="Endereço:" />
                 <TextField fx:id="tfEndereco" layoutX="45.0" layoutY="291.0" prefHeight="25.0" prefWidth="284.0" promptText="Endereço" />
             <ComboBox fx:id="cbID" layoutX="45.0" layoutY="51.0" onAction="#selecionarId" prefHeight="25.0" prefWidth="284.0" promptText="Selecione um ID" />
+            <TextField fx:id="txId" layoutX="337.0" layoutY="51.0" />
             </children>
         </AnchorPane>
     </children>
