@@ -8,10 +8,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
+
 
 public class CentralController {
 
@@ -46,7 +49,7 @@ public class CentralController {
     private MenuItem miCadEncomendas;
 
     @FXML
-    private ImageView img;
+    private ImageView imageView;
 
     @FXML
     private MenuBar mbPrincipal;
@@ -61,7 +64,7 @@ public class CentralController {
 
     @FXML
     void acaoCadEncomendas(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/view/despachefx.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/encomendafx.fxml"));
         Stage st = new Stage();
 //        stage = (Stage) mbPrincipal.getScene().getWindow();
         st.setTitle("Cadastrar Encomenda");
