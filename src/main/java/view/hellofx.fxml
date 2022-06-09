@@ -11,7 +11,7 @@
 		<AnchorPane prefHeight="238.0" prefWidth="347.0">
 			<children>
 				<Label fx:id="label" layoutX="160.0" layoutY="61.0" text="Bem-Vindo" />
-				<ComboBox fx:id="cbUnidades" layoutX="115.0" layoutY="119.0" prefWidth="150.0" promptText="Escolha a Unidade" />
+				<ComboBox fx:id="cbUsuario" layoutX="115.0" layoutY="119.0" onAction="#selecionarUsuario" prefWidth="150.0" promptText="Selecione o Usuario" />
 				<Button fx:id="btEntrar" layoutX="166.0" layoutY="185.0" mnemonicParsing="false" onAction="#acaoBotao" text="Entrar" />
 			</children>
 		</AnchorPane>

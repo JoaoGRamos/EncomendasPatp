@@ -77,7 +77,7 @@ public class DestinatarioController {
                 alerta.show();
             }
 
-    }
+        }
         else {
            Alert alerta = new Alert(Alert.AlertType.ERROR);
            alerta.setTitle("Aviso");

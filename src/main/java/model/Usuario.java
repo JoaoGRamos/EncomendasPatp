@@ -1,9 +1,13 @@
 package model;
 
+import view.Controller;
+
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
 
+@Entity
 public class Usuario implements Serializable{
 
     @Id
@@ -48,5 +52,10 @@ public class Usuario implements Serializable{
 
     public void setUnidade(Integer unidade) {
         this.unidade = unidade;
+    }
+
+    @Override
+    public String toString() {
+        return nome;
     }
 }

@@ -5,7 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.time.LocalDate;
+import javax.persistence.Entity;
 
+@Entity
 public class Encomendas implements Serializable{
 
     @Id
@@ -25,13 +27,13 @@ public class Encomendas implements Serializable{
     private Integer destino;
 
     @Column
-    private LocalDate dataPostagem;
+    private LocalDate data_postagem;
 
     @Column
-    private LocalDate dataEntregaPrev;
+    private LocalDate data_entrega_prev;
 
     @Column
-    private LocalDate dataEntregaReal;
+    private LocalDate data_entrega_real;
 
     public Encomendas() {
 
@@ -44,9 +46,9 @@ public class Encomendas implements Serializable{
         this.destinatario = destinatario;
         this.origem = origem;
         this.destino = destino;
-        this.dataPostagem = dataPostagem;
-        this.dataEntregaPrev = dataEntregaPrev;
-        this.dataEntregaReal = dataEntregaReal;
+        this.data_postagem = dataPostagem;
+        this.data_entrega_prev = dataEntregaPrev;
+        this.data_entrega_real = dataEntregaReal;
     }
 
     public Integer getCodigo() {
@@ -90,26 +92,26 @@ public class Encomendas implements Serializable{
     }
 
     public LocalDate getDataPostagem() {
-        return dataPostagem;
+        return data_postagem;
     }
 
     public void setDataPostagem(LocalDate dataPostagem) {
-        this.dataPostagem = dataPostagem;
+        this.data_postagem = dataPostagem;
     }
 
     public LocalDate getDataEntregaPrev() {
-        return dataEntregaPrev;
+        return data_entrega_prev;
     }
 
     public void setDataEntregaPrev(LocalDate dataEntregaPrev) {
-        this.dataEntregaPrev = dataEntregaPrev;
+        this.data_entrega_prev = dataEntregaPrev;
     }
 
     public LocalDate getDataEntregaReal() {
-        return dataEntregaReal;
+        return data_entrega_real;
     }
 
     public void setDataEntregaReal(LocalDate dataEntregaReal) {
-        this.dataEntregaReal = dataEntregaReal;
+        this.data_entrega_real = dataEntregaReal;
     }
 }

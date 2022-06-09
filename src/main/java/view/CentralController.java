@@ -1,6 +1,5 @@
 package view;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,9 +8,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+
+import java.io.File;
 import java.io.IOException;
 
 public class CentralController {
@@ -43,17 +45,19 @@ public class CentralController {
     @FXML
     private Label nomeUsuario;
 
+    @FXML
+    private ImageView img;
+    @FXML
+    private MenuBar mbPrincipal;
+
     private Stage stage;
     private Scene scene;
     private Parent root;
-   @FXML
-    private MenuBar mbPrincipal;
-    @FXML
-    private ImageView img;
 
     public void initialize() {
-
-
+        File file = new File("logotop.png");
+        Image image = new Image(file.toURI().toString());
+        img.setImage(image);
     }
 
     @FXML

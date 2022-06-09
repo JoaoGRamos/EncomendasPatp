@@ -1,6 +1,6 @@
 package view;
 
-import dao.UnidadesDAO;
+import dao.DAOfactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,7 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import model.Unidades;
+import model.Usuario;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,40 +26,55 @@ public class Controller {
     private Button btEntrar;
 
     @FXML
-    private ComboBox<Unidades> cbUnidades;
+    private ComboBox<Usuario> cbUsuario;
 
-    private List<Unidades> unidades = new ArrayList<>();
+    private List<Usuario> usuarios = new ArrayList<>();
     private Stage stage;
     private Scene scene;
     private Parent root;
 
-    private ObservableList<Unidades> obsUnidades;
+    private ObservableList<Usuario> obsUsuarios;
+    public Integer idUsuario = 0;
 
     public void initialize() {
-       carregarUnidades();
+       carregarUsuarios();
     }
 
+
+    @FXML
+    void selecionarUsuario(ActionEvent event) {
+        DAOfactory dao = new DAOfactory(Usuario.class);
+        int e1 = cbUsuario.getSelectionModel().getSelectedIndex();
+        Usuario id = (Usuario)cbUsuario.getItems().get(e1);
+        idUsuario = id.getCodigo();
+        System.out.println(idUsuario);
+    }
     public void ListarTodos() {
-        UnidadesDAO unid = new UnidadesDAO();
-        List<Unidades> list = unid.obterTodos();
-        obsUnidades = FXCollections.observableArrayList(list);
-        cbUnidades.setItems(obsUnidades);
+        DAOfactory dao = new DAOfactory(Usuario.class);
+        List<Usuario> list = dao.obterTodos();
+        obsUsuarios = FXCollections.observableArrayList(list);
+        cbUsuario.setItems(obsUsuarios);
     }
 
-    public void carregarUnidades() {
-
+    public void carregarUsuarios() {
         ListarTodos();
 
     }
 
     @FXML
     void acaoBotao(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/view/centralfx.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Super Encomendas");
-        stage.setScene(new Scene(root));
-        stage.show();
-
+        if (!(idUsuario == 0)) {
+            Parent root = FXMLLoader.load(getClass().getResource("/view/centralfx.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setTitle("Super Encomendas");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } else{
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Aviso");
+            alerta.setHeaderText("Selecione um usuario para entrar!");
+            alerta.show();
+        }
     }
 
 }
