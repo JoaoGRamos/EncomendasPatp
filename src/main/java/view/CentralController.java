@@ -60,16 +60,17 @@ public class CentralController {
     private Parent root;
 
     public void initialize() {
-
+        PegarNome();
 
     }
 
     public void PegarNome(){
-//        Usuario user = new Usuario();
-//        Controller contr = new Controller();
-//        DAOfactory dao = new DAOfactory(Usuario.class);
-//        int idUser = contr.idUsuario;
-//        Usuario id =
+        Controller contr = new Controller();
+        System.out.println(contr.idUnidade);
+        System.out.println(contr.nomeUsuario);
+        System.out.println(contr.idUnidade);
+        nomeUsuario.setText("Seja Bem-Vindo " + contr.nomeUsuario);
+
     }
 
     @FXML

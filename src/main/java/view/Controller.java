@@ -38,6 +38,7 @@ public class Controller {
     public String nomeUsuario;
     public Integer idUnidade;
 
+
     public void initialize() {
        carregarUsuarios();
     }
@@ -55,6 +56,7 @@ public class Controller {
         System.out.println(nomeUsuario);
         System.out.println(idUnidade);
     }
+
 
     public void ListarTodos() {
         DAOfactory dao = new DAOfactory(Usuario.class);
