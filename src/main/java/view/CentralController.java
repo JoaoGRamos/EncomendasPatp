@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -35,6 +36,13 @@ public class CentralController {
     private Parent root;
    @FXML
     private MenuBar mbPrincipal;
+    @FXML
+    private ImageView img;
+
+    public void initialize() {
+
+
+    }
 
 
     @FXML

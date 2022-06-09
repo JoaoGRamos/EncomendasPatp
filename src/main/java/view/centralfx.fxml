@@ -42,9 +42,9 @@
       </MenuBar>
    </top>
    <bottom>
-      <Label fx:id="nomeUsuario" prefHeight="57.0" prefWidth="555.0" text="Label" BorderPane.alignment="CENTER">
+      <Label fx:id="nomeUsuario" alignment="BASELINE_RIGHT" prefHeight="70.0" prefWidth="548.0" text="Seja Bem-Vindo Daniel" BorderPane.alignment="CENTER">
          <padding>
-            <Insets bottom="40.0" left="450.0" />
+            <Insets bottom="40.0" />
          </padding>
          <font>
             <Font size="20.0" />
@@ -52,9 +52,9 @@
       </Label>
    </bottom>
    <center>
-      <ImageView fitHeight="91.0" fitWidth="287.0" pickOnBounds="true" preserveRatio="true" smooth="false" BorderPane.alignment="CENTER">
+      <ImageView fx:id="img" fitHeight="286.0" fitWidth="480.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <image>
-            <Image url="@../../../../img/logo.png" />
+            <Image url="@../../../../img/logotop.png" />
          </image>
       </ImageView>
    </center>
