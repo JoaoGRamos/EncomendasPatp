@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="view.RotasController"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RotasController">
+   <children>
+      <AnchorPane prefHeight="402.0" prefWidth="600.0">
+         <children>
+            <TableView layoutX="15.0" layoutY="37.0" prefHeight="302.0" prefWidth="571.0">
+              <columns>
+                <TableColumn fx:id="tcId" prefWidth="179.0" text="ID" />
+                <TableColumn fx:id="tcOrigem" prefWidth="195.0" text="Origem" />
+                  <TableColumn fx:id="tcDestino" prefWidth="196.0" text="Destino" />
+              </columns>
+            </TableView>
+            <Button fx:id="btVoltar" layoutX="509.0" layoutY="354.0" mnemonicParsing="false" onAction="#acaoVoltar" prefHeight="25.0" prefWidth="64.0" text="Voltar" />
+            <Label layoutX="15.0" layoutY="14.0" text="Lista de Rotas:" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
