@@ -16,6 +16,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="Encomendas">
             <items>
+                  <MenuItem fx:id="miCadEncomendas" mnemonicParsing="false" onAction="#acaoCadEncomendas" text="Cadastrar Encomenda" />
                   <MenuItem fx:id="miDespache" mnemonicParsing="false" onAction="#acaoDespache" text="Despache" />
               <MenuItem fx:id="miRastreio" mnemonicParsing="false" onAction="#acaoRastreio" text="Rastreio" />
             </items>
@@ -42,7 +43,7 @@
       </MenuBar>
    </top>
    <bottom>
-      <Label fx:id="nomeUsuario" alignment="BASELINE_RIGHT" prefHeight="70.0" prefWidth="548.0" text="Seja Bem-Vindo Daniel" BorderPane.alignment="CENTER">
+      <Label fx:id="nomeUsuario" alignment="BASELINE_RIGHT" prefHeight="70.0" prefWidth="501.0" text="Seja Bem-Vindo" BorderPane.alignment="CENTER">
          <padding>
             <Insets bottom="40.0" />
          </padding>
@@ -54,7 +55,7 @@
    <center>
       <ImageView fx:id="img" fitHeight="286.0" fitWidth="480.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <image>
-            <Image url="@../../../../img/logotop.png" />
+            <Image url="@../../resources/logotop.png" />
          </image>
       </ImageView>
    </center>

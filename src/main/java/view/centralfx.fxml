@@ -16,6 +16,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="Encomendas">
             <items>
+                  <MenuItem fx:id="miCadEncomendas" mnemonicParsing="false" onAction="#acaoCadEncomendas" text="Cadastrar Encomenda" />
                   <MenuItem fx:id="miDespache" mnemonicParsing="false" onAction="#acaoDespache" text="Despache" />
               <MenuItem fx:id="miRastreio" mnemonicParsing="false" onAction="#acaoRastreio" text="Rastreio" />
             </items>
