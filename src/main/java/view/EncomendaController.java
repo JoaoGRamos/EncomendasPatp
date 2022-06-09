@@ -169,6 +169,8 @@ public class EncomendaController {
 
     @FXML
     void acaoCancelar(ActionEvent event) {
+        Stage stage = (Stage) btCancelar.getScene().getWindow(); //Obtendo a janela atual
+        stage.close(); //Fechando o Stage
 
     }
 

@@ -43,11 +43,6 @@ public class DestinatarioController {
         Stage stage = (Stage) btCancelar.getScene().getWindow(); //Obtendo a janela atual
         stage.close(); //Fechando o Stage
 
-        Parent root = FXMLLoader.load(getClass().getResource("/view/centralfx.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Rastreio de Encomendas");
-        stage.setScene(new Scene(root));
-        stage.show();
     }
 
     @FXML

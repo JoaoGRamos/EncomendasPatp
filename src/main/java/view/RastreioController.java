@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class RastreioController {
 
@@ -42,6 +43,8 @@ public class RastreioController {
 
     @FXML
     void acaoVoltar(ActionEvent event) {
+        Stage stage = (Stage) btVoltar.getScene().getWindow(); //Obtendo a janela atual
+        stage.close(); //Fechando o Stage
 
     }
 
