@@ -74,7 +74,7 @@ public class DAOfactory<E> {
     }
 
     public List<E> obterTodos(){
-        return this.obterTodos(10, 0);
+        return this.obterTodos(99, 0);
     }
 
     public List<E> obterTodos(int qtde, int deslocamento){

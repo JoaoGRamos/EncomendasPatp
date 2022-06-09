@@ -35,6 +35,8 @@ public class Controller {
 
     private ObservableList<Usuario> obsUsuarios;
     public Integer idUsuario = 0;
+    public String nomeUsuario;
+    public Integer idUnidade;
 
     public void initialize() {
        carregarUsuarios();
@@ -47,8 +49,13 @@ public class Controller {
         int e1 = cbUsuario.getSelectionModel().getSelectedIndex();
         Usuario id = (Usuario)cbUsuario.getItems().get(e1);
         idUsuario = id.getCodigo();
+        nomeUsuario = id.getNome();
+        idUnidade = id.getUnidade();
         System.out.println(idUsuario);
+        System.out.println(nomeUsuario);
+        System.out.println(idUnidade);
     }
+
     public void ListarTodos() {
         DAOfactory dao = new DAOfactory(Usuario.class);
         List<Usuario> list = dao.obterTodos();

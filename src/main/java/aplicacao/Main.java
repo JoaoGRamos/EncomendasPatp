@@ -21,7 +21,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
     	
 //    	usingHibernate();
-        primaryStage.setResizable(false);
+//        primaryStage.setResizable(false);
 		Parent root = FXMLLoader.load(getClass().getResource("/view/hellofx.fxml"));
         primaryStage.setTitle("Rastreio de Encomendas");
         primaryStage.setScene(new Scene(root));
