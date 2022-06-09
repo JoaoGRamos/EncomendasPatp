@@ -29,6 +29,18 @@ public class CentralController {
     private MenuItem miEdRemetente;
 
     @FXML
+    private MenuItem miDespache;
+
+    @FXML
+    private MenuItem miRastreio;
+
+    @FXML
+    private MenuItem miRotas;
+
+    @FXML
+    private MenuItem miSobre;
+
+    @FXML
     private Label nomeUsuario;
 
     private Stage stage;
@@ -44,14 +56,14 @@ public class CentralController {
 
     }
 
-
     @FXML
     void addDestinatario(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/destinatariofx.fxml"));
-        stage = (Stage) mbPrincipal.getScene().getWindow();
-        stage.setTitle("Cadastro de Destinatario!");
-        stage.setScene(new Scene(root));
-        stage.show();
+        Stage st = new Stage();
+//        stage = (Stage) mbPrincipal.getScene().getWindow();
+        st.setTitle("Cadastro de Destinatario!");
+        st.setScene(new Scene(root));
+        st.show();
 
     }
 
@@ -83,5 +95,39 @@ public class CentralController {
         stage.setScene(new Scene(root));
         stage.show();
     }
+    @FXML
+    void acaoDespache(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/despachefx.fxml"));
+        stage = (Stage) mbPrincipal.getScene().getWindow();
+        stage.setTitle("Editar Remetente!");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 
+    @FXML
+    void acaoRastreio(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/rastreiofx.fxml"));
+        stage = (Stage) mbPrincipal.getScene().getWindow();
+        stage.setTitle("Editar Remetente!");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    void acaoRotas(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/rotasfx.fxml"));
+        stage = (Stage) mbPrincipal.getScene().getWindow();
+        stage.setTitle("Editar Remetente!");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    void acaoSobre(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/sobrefx.fxml"));
+        stage = (Stage) mbPrincipal.getScene().getWindow();
+        stage.setTitle("Editar Remetente!");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 }
