@@ -10,15 +10,14 @@
    <children>
       <Button fx:id="btSalvar" layoutX="359.0" layoutY="412.0" mnemonicParsing="false" onAction="#acaoSalvar" prefHeight="25.0" prefWidth="62.0" text="Salvar" />
       <Button fx:id="btCancelar" layoutX="274.0" layoutY="412.0" mnemonicParsing="false" onAction="#acaoCancelar" text="Cancelar" />
-      <Label layoutX="77.0" layoutY="54.0" text="Destino" />
-      <Label layoutX="77.0" layoutY="124.0" prefHeight="17.0" prefWidth="70.0" text="Remetente" />
-      <ComboBox fx:id="cbRemetente" layoutX="77.0" layoutY="153.0" onAction="#acaoRemetente" prefWidth="150.0" />
+      <Label layoutX="77.0" layoutY="54.0" text="Encomenda" />
+      <Label layoutX="77.0" layoutY="124.0" prefHeight="17.0" prefWidth="70.0" text="Status" />
+      <ComboBox fx:id="cbStatus" layoutX="77.0" layoutY="153.0" onAction="#acaoStatus" prefWidth="150.0" />
       <ComboBox fx:id="cbDestinatario" layoutX="78.0" layoutY="231.0" onAction="#acaoDestinatario" prefWidth="150.0" />
       <Label layoutX="77.0" layoutY="204.0" prefHeight="17.0" prefWidth="70.0" text="Destinatario" />
       <DatePicker fx:id="dpDataPost" layoutX="78.0" layoutY="301.0" prefHeight="25.0" prefWidth="150.0" />
       <Label layoutX="78.0" layoutY="271.0" text="Data Postagem" />
-      <Button fx:id="btCadRemetente" layoutX="249.0" layoutY="153.0" mnemonicParsing="false" onAction="#acaoCadRemetente" prefHeight="25.0" prefWidth="70.0" text="Cadastrar" />
       <Button fx:id="btCadDestinatario" layoutX="249.0" layoutY="231.0" mnemonicParsing="false" onAction="#acaoCadDestinatario" prefHeight="25.0" prefWidth="70.0" text="Cadastrar" />
-      <ComboBox fx:id="cbDestino" layoutX="77.0" layoutY="82.0" onAction="#acaoDestino" prefWidth="150.0" />
+      <ComboBox fx:id="cbEncomenda" layoutX="77.0" layoutY="82.0" onAction="#acaoEncomenda" prefWidth="150.0" />
    </children>
 </AnchorPane>

@@ -10,7 +10,7 @@ public class DAOfactory<E> {
 
     public static EntityManagerFactory emf;
     public EntityManager em;
-    private Class<E> classe;
+    public Class<E> classe;
 
     private Class tClass;
 

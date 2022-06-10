@@ -1,6 +1,5 @@
 package model;
 
-import view.Controller;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
