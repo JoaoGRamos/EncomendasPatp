@@ -1,10 +1,9 @@
 package dao;
 
-import model.Unidades;
 import model.Rastreio;
 
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
+
 import java.util.List;
 
 public class RastreioDAO<E> extends DAOfactory{
