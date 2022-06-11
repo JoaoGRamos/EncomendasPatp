@@ -1,5 +1,8 @@
 package dao;
 
+import model.Rastreio;
+import model.Unidades;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -11,6 +14,7 @@ public class DAOfactory<E> {
     public static EntityManagerFactory emf;
     public EntityManager em;
     public Class<E> classe;
+
 
     private Class tClass;
 
@@ -25,10 +29,13 @@ public class DAOfactory<E> {
         this(null);
     }
 
+
+
     public DAOfactory(Class<E> classe) {
         this.classe = classe;
         em = emf.createEntityManager();
     }
+
 
     public DAOfactory<E> abrirT() {
         em.getTransaction().begin();

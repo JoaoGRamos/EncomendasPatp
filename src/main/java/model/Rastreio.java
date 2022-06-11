@@ -1,11 +1,13 @@
 package model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+@Entity
 public class Rastreio implements Serializable{
 
     @Id
@@ -29,6 +31,9 @@ public class Rastreio implements Serializable{
     @Column
     private Integer rota;
 
+    @Column
+    private Integer localizacao;
+
     public Rastreio() {
 
     }
@@ -42,6 +47,7 @@ public class Rastreio implements Serializable{
         this.dataHoraSaida = dataHoraSaida;
         this.status = status;
         this.rota = rota;
+        this.localizacao = localizacao;
     }
 
 
@@ -96,4 +102,12 @@ public class Rastreio implements Serializable{
     public Integer getRota() { return rota; }
 
     public void setRota(Integer rota) { this.rota = rota; }
+
+    public Integer getLocalizacao() {
+        return localizacao;
+    }
+
+    public void setLocalizacao(Integer localizacao) {
+        this.localizacao = localizacao;
+    }
 }

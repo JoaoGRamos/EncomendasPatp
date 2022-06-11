@@ -51,7 +51,7 @@ public class Main extends Application {
 
         for (Unidades unidade: unidades){
             System.out.println("ID: " + unidade.getCodigo() + ", Nome: " + unidade.getDescricao() +
-                    " Local: " + unidade.getLocal());
+                    " Local: " + unidade.getMunicipio());
 //            if (unidade.getCodigo() == 8) {
 //                daoU.deletar(unidade);
 //            }
@@ -68,7 +68,7 @@ public class Main extends Application {
 
         for (Unidades unidade: unidades) {
             System.out.println("ID: " + unidade.getCodigo() + ", Nome: " + unidade.getDescricao() +
-                    " Local: " + unidade.getLocal());
+                    " Local: " + unidade.getMunicipio());
         }
 
 

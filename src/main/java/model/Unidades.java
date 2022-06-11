@@ -13,17 +13,17 @@ public class Unidades implements Serializable{
     private String descricao;
 
     @Column
-    private String local;
+    private String municipio;
 
     public Unidades() {
 
     }
 
-    public Unidades(Integer codigo, String descricao, String local) {
+    public Unidades(Integer codigo, String descricao, String municipio) {
         super();
         this.codigo = codigo;
         this.descricao = descricao;
-        this.local = local;
+        this.municipio = municipio;
     }
 
     public Integer getCodigo() {
@@ -42,12 +42,12 @@ public class Unidades implements Serializable{
         this.descricao = descricao;
     }
 
-    public String getLocal() {
-        return local;
+    public String getMunicipio() {
+        return municipio;
     }
 
-    public void setLocal(String local) {
-        this.local = local;
+    public void setMunicipio(String local) {
+        this.municipio = municipio;
     }
 
     @Override
