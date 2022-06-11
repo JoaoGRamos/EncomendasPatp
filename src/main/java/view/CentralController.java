@@ -56,20 +56,35 @@ public class CentralController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private int idUsuario;
 
     public void initialize() {
-        PegarNome();
-
+        nomeUsuario.setText("Seja-Bem Vindo");
+//        System.out.println(nomeUsuario.geton().getUserData());
+//        Object usuario = nomeUsuario.getScene().getWindow().getUserData();
+//        System.out.println(usuario);
     }
+//
+//    public void CentralController(int idUsuario){
+//
+//        this.idUsuario = idUsuario;
+//        DAOfactory dao = new DAOfactory(Usuario.class);
+//        Usuario usuario = (Usuario) dao.show("id", idUsuario);
+////        Usuario id = (Usuario)cbUsuario.getItems().get(e1);
+////        nomeUsuario.setText("Seja Bem-Vindo " + usuario.getNome());
+//        nomeUsuario.setText("Seja Bem-Vindo " + usuario.getNome());
+//        System.out.println(usuario.getNome());
+//
+//    }
 
-    public void PegarNome(){
-        Controller contr = new Controller();
-        System.out.println(contr.idUnidade);
-        System.out.println(contr.nomeUsuario);
-        System.out.println(contr.idUnidade);
-        nomeUsuario.setText("Seja Bem-Vindo " + contr.nomeUsuario);
-
-    }
+//    public void PegarNome(){
+//        Controller contr = new Controller();
+//        System.out.println(contr.idUnidade);
+//        System.out.println(contr.nomeUsuario);
+//        System.out.println(contr.idUnidade);
+//        nomeUsuario.setText("Seja Bem-Vindo " + contr.nomeUsuario);
+//
+//    }
 
     @FXML
     void acaoCadEncomendas(ActionEvent event) throws IOException {

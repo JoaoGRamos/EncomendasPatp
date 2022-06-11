@@ -44,18 +44,18 @@ public class Controller {
     }
 
 
-    @FXML
-    void selecionarUsuario(ActionEvent event) {
-        DAOfactory dao = new DAOfactory(Usuario.class);
-        int e1 = cbUsuario.getSelectionModel().getSelectedIndex();
-        Usuario id = (Usuario)cbUsuario.getItems().get(e1);
-        idUsuario = id.getCodigo();
-        nomeUsuario = id.getNome();
-        idUnidade = id.getUnidade();
-        System.out.println(idUsuario);
-        System.out.println(nomeUsuario);
-        System.out.println(idUnidade);
-    }
+//    @FXML
+//    void selecionarUsuario(ActionEvent event) {
+//        DAOfactory dao = new DAOfactory(Usuario.class);
+//        int e1 = cbUsuario.getSelectionModel().getSelectedIndex();
+//        Usuario id = (Usuario)cbUsuario.getItems().get(e1);
+//        idUsuario = id.getCodigo();
+//        nomeUsuario = id.getNome();
+//        idUnidade = id.getUnidade();
+//        System.out.println(idUsuario);
+//        System.out.println(nomeUsuario);
+//        System.out.println(idUnidade);
+//    }
 
 
     public void ListarTodos() {
@@ -72,12 +72,22 @@ public class Controller {
 
     @FXML
     void acaoBotao(ActionEvent event) throws IOException {
-        if (!(idUsuario == 0)) {
+        if ((cbUsuario.getSelectionModel().getSelectedIndex() >= 0)) {
+//            DAOfactory dao = new DAOfactory(Usuario.class);
+            int e1 = cbUsuario.getSelectionModel().getSelectedIndex();
+            Usuario usuario = (Usuario)cbUsuario.getItems().get(e1);
+
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/centralfx.fxml"));
+//            loader.setController(new CentralController(usuario.getCodigo()));
+//            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
             Parent root = FXMLLoader.load(getClass().getResource("/view/centralfx.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setTitle("Super Encomendas");
             stage.setScene(new Scene(root));
+            stage.setUserData(usuario);
             stage.show();
+
         } else{
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setTitle("Aviso");
