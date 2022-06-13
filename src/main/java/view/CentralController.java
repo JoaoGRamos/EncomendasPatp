@@ -142,8 +142,7 @@ public class CentralController {
     void acaoDespache(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/despachefx.fxml"));
         Stage st = new Stage();
-//        stage = (Stage) mbPrincipal.getScene().getWindow();
-        st.setTitle("Cadastrar Encomenda");
+        st.setTitle("Despachar Encomenda");
         st.setScene(new Scene(root));
         st.show();
     }
