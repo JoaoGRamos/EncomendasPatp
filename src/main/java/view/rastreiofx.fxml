@@ -8,14 +8,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RastreioController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="691.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RastreioController">
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="746.0">
+      <AnchorPane prefHeight="421.0" prefWidth="691.0">
          <children>
             <Label layoutX="34.0" layoutY="23.0" text="Selecione a encomenda:" />
-            <TableView fx:id="tvRastreio" layoutX="34.0" layoutY="83.0" prefHeight="270.0" prefWidth="555.0">
+            <TableView fx:id="tvRastreio" layoutX="34.0" layoutY="83.0" prefHeight="270.0" prefWidth="627.0">
               <columns>
-                <TableColumn fx:id="tcOrigem" prefWidth="70.0" text="Origem" />
+                  <TableColumn fx:id="tcCodigo" prefWidth="56.0" text="Codigo" />
+                <TableColumn fx:id="tcOrigem" prefWidth="89.0" text="Origem" />
                 <TableColumn fx:id="tcDestino" prefWidth="86.0" text="Destino" />
                   <TableColumn fx:id="tcStatus" prefWidth="92.0" text="Status" />
                   <TableColumn fx:id="tcDataEntrada" prefWidth="110.0" text="Data de entrada" />
@@ -25,7 +26,7 @@
             </TableView>
             <TextField fx:id="tfPesquisa" layoutX="34.0" layoutY="50.0" prefHeight="25.0" prefWidth="239.0" promptText="Pesquisa" />
             <Button fx:id="btPesquisar" layoutX="311.0" layoutY="50.0" mnemonicParsing="false" onAction="#acaoPesquisar" prefHeight="25.0" prefWidth="72.0" text="Pesquisar" />
-            <Button fx:id="btVoltar" layoutX="520.0" layoutY="361.0" mnemonicParsing="false" onAction="#acaoVoltar" prefHeight="25.0" prefWidth="53.0" text="Voltar" />
+            <Button fx:id="btVoltar" layoutX="577.0" layoutY="375.0" mnemonicParsing="false" onAction="#acaoVoltar" prefHeight="25.0" prefWidth="53.0" text="Voltar" />
          </children>
       </AnchorPane>
    </children>

@@ -26,6 +26,7 @@ public class Unidades implements Serializable{
         this.municipio = municipio;
     }
 
+
     public Integer getCodigo() {
         return codigo;
     }

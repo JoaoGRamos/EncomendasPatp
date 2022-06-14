@@ -12,6 +12,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Rastreio;
+import model.RastreioListagem;
 import model.Remetente;
 import model.Unidades;
 
@@ -26,31 +27,33 @@ public class RastreioController {
 
     @FXML
     private Button btVoltar;
+    @FXML
+    private TableColumn<RastreioListagem, String> tcCodigo;
 
     @FXML
-    private TableColumn<Rastreio, LocalDateTime> tcDataEntrada;
+    private TableColumn<RastreioListagem, String> tcDataEntrada;
 
     @FXML
-    private TableColumn<Rastreio, LocalDateTime> tcDataSaida;
+    private TableColumn<RastreioListagem, String> tcDataSaida;
 
     @FXML
-    private TableColumn<Rastreio, String> tcDestino;
+    private TableColumn<RastreioListagem, String> tcDestino;
 
     @FXML
-    private TableColumn<Rastreio, String> tcLocal;
+    private TableColumn<RastreioListagem, String> tcLocal;
 
     @FXML
-    private TableColumn<Rastreio, String> tcOrigem;
+    private TableColumn<RastreioListagem, String> tcOrigem;
 
     @FXML
-    private TableColumn<Rastreio, String> tcStatus;
+    private TableColumn<RastreioListagem, String> tcStatus;
 
     @FXML
-    private TableView<Rastreio> tvRastreio;
+    private TableView<RastreioListagem> tvRastreio;
 
     @FXML
     private TextField tfPesquisa;
-    private ObservableList<Rastreio> obsRastreio;
+    private ObservableList<RastreioListagem> obsRastreio;
     private ObservableList<Unidades> obsUnidades;
 
     public void initialize(){
@@ -58,11 +61,11 @@ public class RastreioController {
     }
 
     public void ListarTodos() {
-        RastreioDAO dao = new RastreioDAO(Rastreio.class);
-        List<Rastreio> list = dao.obterRastreio();
+        RastreioDAO dao = new RastreioDAO(RastreioListagem.class);
+        List<RastreioListagem> list = dao.obterRastreio();
         obsRastreio = FXCollections.observableArrayList(list);
         tvRastreio.setItems(obsRastreio);
-
+        System.out.println(obsRastreio);
     }
 
     @FXML

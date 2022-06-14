@@ -1,9 +1,6 @@
 package model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -14,10 +11,10 @@ public class Rastreio implements Serializable{
     private Integer id;
 
     @Column
-    private Integer origem;
+    private Unidades origem;
 
     @Column
-    private Integer destino;
+    private Unidades destino;
 
     @Column
     private LocalDateTime dataHoraEntrada;
@@ -26,19 +23,25 @@ public class Rastreio implements Serializable{
     private LocalDateTime dataHoraSaida;
 
     @Column
-    private Enum status;
+    private String status;
 
     @Column
     private Integer rota;
 
     @Column
-    private Integer localizacao;
+    private Unidades localizacao;
 
     public Rastreio() {
 
     }
 
-    public Rastreio(Integer id, Integer origem, Integer destino, LocalDateTime dataHoraEntrada, LocalDateTime dataHoraSaida, Enum status) {
+    public Rastreio(Integer id, String status) {
+        super();
+        this.id = id;
+        this.status = status;
+    }
+
+    public Rastreio(Integer id, Unidades origem, Unidades destino, LocalDateTime dataHoraEntrada, LocalDateTime dataHoraSaida, String status, Unidades localizacao) {
         super();
         this.id = id;
         this.origem = origem;
@@ -59,19 +62,20 @@ public class Rastreio implements Serializable{
         this.id = id;
     }
 
-    public Integer getOrigem() {
+
+    public Unidades getOrigem() {
         return origem;
     }
 
-    public void setOrigem(Integer origem) {
+    public void setOrigem(Unidades origem) {
         this.origem = origem;
     }
 
-    public Integer getDestino() {
+    public Unidades getDestino() {
         return destino;
     }
 
-    public void setDestino(Integer destino) {
+    public void setDestino(Unidades destino) {
         this.destino = destino;
     }
 
@@ -91,11 +95,11 @@ public class Rastreio implements Serializable{
         this.dataHoraSaida = dataHoraSaida;
     }
 
-    public Enum getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Enum status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -103,11 +107,15 @@ public class Rastreio implements Serializable{
 
     public void setRota(Integer rota) { this.rota = rota; }
 
-    public Integer getLocalizacao() {
+    @OneToOne()
+    @JoinTable(name="unidades",
+            joinColumns={@JoinColumn(name="localizacao",
+                    referencedColumnName="codigo")})
+    public Unidades getLocalizacao() {
         return localizacao;
     }
 
-    public void setLocalizacao(Integer localizacao) {
+    public void setLocalizacao(Unidades localizacao) {
         this.localizacao = localizacao;
     }
 }
