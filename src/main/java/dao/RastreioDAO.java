@@ -22,5 +22,10 @@ public class RastreioDAO<E> extends DAOfactory{
         return (List<E>) listagemDao.findAll();
     }
 
+    public RastreioListagem pesquisarRastreio(Integer id) {
+        RastreioDaoJDBC listagemDao = new RastreioDaoJDBC(DB.getConnection());
+        return listagemDao.findById(id);
+    }
+
 
 }

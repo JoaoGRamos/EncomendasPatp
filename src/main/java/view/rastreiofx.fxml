@@ -25,8 +25,9 @@
               </columns>
             </TableView>
             <TextField fx:id="tfPesquisa" layoutX="34.0" layoutY="50.0" prefHeight="25.0" prefWidth="239.0" promptText="Pesquisa" />
-            <Button fx:id="btPesquisar" layoutX="311.0" layoutY="50.0" mnemonicParsing="false" onAction="#acaoPesquisar" prefHeight="25.0" prefWidth="72.0" text="Pesquisar" />
+            <Button fx:id="btPesquisar" layoutX="295.0" layoutY="50.0" mnemonicParsing="false" onAction="#acaoPesquisar" prefHeight="25.0" prefWidth="85.0" text="Pesquisar" />
             <Button fx:id="btVoltar" layoutX="577.0" layoutY="375.0" mnemonicParsing="false" onAction="#acaoVoltar" prefHeight="25.0" prefWidth="53.0" text="Voltar" />
+            <Button fx:id="btAtualizar" layoutX="392.0" layoutY="50.0" mnemonicParsing="false" onAction="#acaoAtualizar" prefHeight="25.0" prefWidth="85.0" text="Atualizar" />
          </children>
       </AnchorPane>
    </children>

@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.Rastreio;
 import model.RastreioListagem;
@@ -21,7 +22,8 @@ import java.util.List;
 
 
 public class RastreioController {
-
+    @FXML
+    private Button btAtualizar;
     @FXML
     private Button btPesquisar;
 
@@ -61,18 +63,40 @@ public class RastreioController {
     }
 
     public void ListarTodos() {
+        tcCodigo.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tcOrigem.setCellValueFactory(new PropertyValueFactory<>("origem"));
+        tcDestino.setCellValueFactory(new PropertyValueFactory<>("destino"));
+        tcStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+        tcDataEntrada.setCellValueFactory(new PropertyValueFactory<>("dataHoraEntrada"));
+        tcDataSaida.setCellValueFactory(new PropertyValueFactory<>("dataHoraSaida"));
+        tcLocal.setCellValueFactory(new PropertyValueFactory<>("localizacao"));
         RastreioDAO dao = new RastreioDAO(RastreioListagem.class);
         List<RastreioListagem> list = dao.obterRastreio();
         obsRastreio = FXCollections.observableArrayList(list);
         tvRastreio.setItems(obsRastreio);
-        System.out.println(obsRastreio);
+//        System.out.println(obsRastreio);
     }
 
     @FXML
     void acaoPesquisar(ActionEvent event) {
-
+        tcCodigo.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tcOrigem.setCellValueFactory(new PropertyValueFactory<>("origem"));
+        tcDestino.setCellValueFactory(new PropertyValueFactory<>("destino"));
+        tcStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+        tcDataEntrada.setCellValueFactory(new PropertyValueFactory<>("dataHoraEntrada"));
+        tcDataSaida.setCellValueFactory(new PropertyValueFactory<>("dataHoraSaida"));
+        tcLocal.setCellValueFactory(new PropertyValueFactory<>("localizacao"));
+        RastreioDAO dao = new RastreioDAO(RastreioListagem.class);
+        Integer id = Integer.valueOf(tfPesquisa.getText());
+        RastreioListagem result = dao.pesquisarRastreio(id);
+        obsRastreio = FXCollections.observableArrayList(result);
+        tvRastreio.setItems(obsRastreio);
     }
 
+    @FXML
+    void acaoAtualizar(ActionEvent event) {
+        ListarTodos();
+    }
     @FXML
     void acaoVoltar(ActionEvent event) {
         Stage stage = (Stage) btVoltar.getScene().getWindow(); //Obtendo a janela atual
