@@ -1,6 +1,5 @@
 package view;
 
-import dao.DAOfactory;
 import dao.RastreioDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,12 +11,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import model.Rastreio;
 import model.RastreioListagem;
-import model.Remetente;
 import model.Unidades;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -56,7 +52,6 @@ public class RastreioController {
     @FXML
     private TextField tfPesquisa;
     private ObservableList<RastreioListagem> obsRastreio;
-    private ObservableList<Unidades> obsUnidades;
 
     public void initialize(){
         ListarTodos();
@@ -74,7 +69,6 @@ public class RastreioController {
         List<RastreioListagem> list = dao.obterRastreio();
         obsRastreio = FXCollections.observableArrayList(list);
         tvRastreio.setItems(obsRastreio);
-//        System.out.println(obsRastreio);
     }
 
     @FXML
