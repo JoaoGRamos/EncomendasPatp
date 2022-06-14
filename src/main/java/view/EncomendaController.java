@@ -10,10 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import model.Destinatario;
-import model.Encomendas;
-import model.Remetente;
-import model.Unidades;
+import model.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -132,12 +129,13 @@ public class EncomendaController {
             try {
                 DAOfactory<Encomendas> dao = new DAOfactory<>(Encomendas.class);
                 Encomendas r1 = new Encomendas();
+                DadosUsuario usuarioSelecionado = DadosUsuario.getInstance(null);
 
                 r1.setDestino(idDestino);
                 r1.setRemetente(idRemetente);
                 r1.setDestinatario(idDestinatario);
                 r1.setDataPostagem(data);
-                r1.setOrigem(idDestino);
+                r1.setOrigem(usuarioSelecionado.usuario.getUnidade());
                 r1.setDataEntregaPrev(data);
                 r1.setDataEntregaReal(data);
                 dao.incluirAtomico(r1);
