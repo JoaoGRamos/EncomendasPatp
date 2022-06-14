@@ -12,6 +12,8 @@ public class RastreioListagem {
 
     @Column
     private String destino;
+    @Column
+    private String status;
 
     @Column
     private String dataHoraEntrada;
@@ -19,8 +21,6 @@ public class RastreioListagem {
     @Column
     private String dataHoraSaida;
 
-    @Column
-    private String status;
 
     @Column
     private Integer rota;
@@ -28,13 +28,13 @@ public class RastreioListagem {
     @Column
     private String localizacao;
 
-    public RastreioListagem(Integer id, String origem, String destino, String dataHoraEntrada, String dataHoraSaida, String status, Integer rota, String localizacao) {
+    public RastreioListagem(Integer id, String origem, String destino,String status, String dataHoraEntrada, String dataHoraSaida, Integer rota, String localizacao) {
         this.id = id;
         this.origem = origem;
         this.destino = destino;
+        this.status = status;
         this.dataHoraEntrada = dataHoraEntrada;
         this.dataHoraSaida = dataHoraSaida;
-        this.status = status;
         this.rota = rota;
         this.localizacao = localizacao;
     }
@@ -109,9 +109,9 @@ public class RastreioListagem {
                 "id=" + id +
                 ", origem='" + origem + '\'' +
                 ", destino='" + destino + '\'' +
+                ", status='" + status + '\'' +
                 ", dataHoraEntrada='" + dataHoraEntrada + '\'' +
                 ", dataHoraSaida='" + dataHoraSaida + '\'' +
-                ", status='" + status + '\'' +
                 ", rota=" + rota +
                 ", localizacao='" + localizacao + '\'' +
                 '}';
