@@ -11,8 +11,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import model.DadosUsuario;
 import model.Usuario;
 
+import javax.naming.ContextNotEmptyException;
+import javax.net.ssl.CertPathTrustManagerParameters;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -76,16 +79,18 @@ public class Controller {
 //            DAOfactory dao = new DAOfactory(Usuario.class);
             int e1 = cbUsuario.getSelectionModel().getSelectedIndex();
             Usuario usuario = (Usuario)cbUsuario.getItems().get(e1);
+            DadosUsuario usuarioSelecionado = DadosUsuario.getInstance(usuario);
 
 //            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/centralfx.fxml"));
 //            loader.setController(new CentralController(usuario.getCodigo()));
 //            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             Parent root = FXMLLoader.load(getClass().getResource("/view/centralfx.fxml"));
+
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setTitle("Super Encomendas");
             stage.setScene(new Scene(root));
-            stage.setUserData(usuario);
+            //stage.setUserData(central.nomeTextUsuario);
             stage.show();
 
         } else{

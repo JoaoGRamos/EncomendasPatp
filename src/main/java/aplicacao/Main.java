@@ -8,12 +8,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.DadosUsuario;
 import model.Unidades;
 
 import java.util.List;
 
 public class Main extends Application {
-
 
     /* ----------------------------------------------------- JAVAFX */
 
@@ -74,6 +74,7 @@ public class Main extends Application {
 
 
     }
+
 
 
 }
