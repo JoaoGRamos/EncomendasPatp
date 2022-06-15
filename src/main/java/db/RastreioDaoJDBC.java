@@ -27,11 +27,12 @@ public class RastreioDaoJDBC implements ListagemDao {
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {
-			st = conn.prepareStatement("SELECT r.id, r.status, u.municipio as origem, u2.municipio as destino, status, datahora_entrada, datahora_saida, rota, u3.municipio as localizacao\n" +
+			st = conn.prepareStatement("SELECT  r.id , u.municipio as origem, u2.municipio as destino, s.descricao as status, datahora_entrada, datahora_saida, rota, u3.municipio as localizacao\n" +
 					"from rastreio r\n" +
 					"inner join unidades u on u.codigo = r.origem\n" +
 					"inner join unidades u2 on u2.codigo = r.destino\n" +
-					"inner join unidades u3 on u3.codigo = r.localizacao;");
+					"inner join unidades u3 on u3.codigo = r.localizacao\n" +
+					"inner join status s on s.id = r.status;");
 			rs = st.executeQuery();
 			List<RastreioListagem> list = new ArrayList<>();
 			while (rs.next()) {

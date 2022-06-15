@@ -1,9 +1,7 @@
 package dao;
 
 import db.DB;
-import db.RastreioDaoJDBC;
 import db.RotasDaoJDBC;
-import model.Rastreio;
 import model.Rotas;
 
 import java.util.List;
