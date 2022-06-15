@@ -11,16 +11,16 @@ public class Rastreio implements Serializable{
     private Integer id;
 
     @Column
-    private Unidades origem;
+    private Integer origem;
 
     @Column
-    private Unidades destino;
+    private Integer destino;
 
     @Column
-    private LocalDateTime dataHoraEntrada;
+    private String dataHoraEntrada;
 
     @Column
-    private LocalDateTime dataHoraSaida;
+    private String dataHoraSaida;
 
     @Column
     private String status;
@@ -29,7 +29,7 @@ public class Rastreio implements Serializable{
     private Integer rota;
 
     @Column
-    private Unidades localizacao;
+    private Integer localizacao;
 
     public Rastreio() {
 
@@ -41,7 +41,7 @@ public class Rastreio implements Serializable{
         this.status = status;
     }
 
-    public Rastreio(Integer id, Unidades origem, Unidades destino, LocalDateTime dataHoraEntrada, LocalDateTime dataHoraSaida, String status, Unidades localizacao) {
+    public Rastreio(Integer id, Integer origem, Integer destino, String dataHoraEntrada, String dataHoraSaida, String status, Integer localizacao) {
         super();
         this.id = id;
         this.origem = origem;
@@ -63,35 +63,35 @@ public class Rastreio implements Serializable{
     }
 
 
-    public Unidades getOrigem() {
+    public Integer getOrigem() {
         return origem;
     }
 
-    public void setOrigem(Unidades origem) {
+    public void setOrigem(Integer origem) {
         this.origem = origem;
     }
 
-    public Unidades getDestino() {
+    public Integer getDestino() {
         return destino;
     }
 
-    public void setDestino(Unidades destino) {
+    public void setDestino(Integer destino) {
         this.destino = destino;
     }
 
-    public LocalDateTime getDataHoraEntrada() {
+    public String getDataHoraEntrada() {
         return dataHoraEntrada;
     }
 
-    public void setDataHoraEntrada(LocalDateTime dataHoraEntrada) {
+    public void setDataHoraEntrada(String dataHoraEntrada) {
         this.dataHoraEntrada = dataHoraEntrada;
     }
 
-    public LocalDateTime getDataHoraSaida() {
+    public String getDataHoraSaida() {
         return dataHoraSaida;
     }
 
-    public void setDataHoraSaida(LocalDateTime dataHoraSaida) {
+    public void setDataHoraSaida(String dataHoraSaida) {
         this.dataHoraSaida = dataHoraSaida;
     }
 
@@ -111,11 +111,13 @@ public class Rastreio implements Serializable{
     @JoinTable(name="unidades",
             joinColumns={@JoinColumn(name="localizacao",
                     referencedColumnName="codigo")})
-    public Unidades getLocalizacao() {
+    public Integer getLocalizacao() {
         return localizacao;
     }
 
-    public void setLocalizacao(Unidades localizacao) {
+    public void setLocalizacao(Integer localizacao) {
         this.localizacao = localizacao;
     }
+
+
 }

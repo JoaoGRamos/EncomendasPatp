@@ -114,4 +114,9 @@ public class Encomendas implements Serializable{
     public void setDataEntregaReal(LocalDate dataEntregaReal) {
         this.data_entrega_real = dataEntregaReal;
     }
+
+    @Override
+    public String toString() {
+        return "codigo=" + codigo;
+    }
 }

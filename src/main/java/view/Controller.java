@@ -14,10 +14,8 @@ import javafx.stage.Stage;
 import model.DadosUsuario;
 import model.Usuario;
 
-import javax.naming.ContextNotEmptyException;
-import javax.net.ssl.CertPathTrustManagerParameters;
+
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
@@ -31,34 +29,15 @@ public class Controller {
     @FXML
     private ComboBox<Usuario> cbUsuario;
 
-    private List<Usuario> usuarios = new ArrayList<>();
     private Stage stage;
-    private Scene scene;
-    private Parent root;
+
 
     private ObservableList<Usuario> obsUsuarios;
-    public Integer idUsuario = 0;
-    public String nomeUsuario;
-    public Integer idUnidade;
-
 
     public void initialize() {
        carregarUsuarios();
     }
 
-
-//    @FXML
-//    void selecionarUsuario(ActionEvent event) {
-//        DAOfactory dao = new DAOfactory(Usuario.class);
-//        int e1 = cbUsuario.getSelectionModel().getSelectedIndex();
-//        Usuario id = (Usuario)cbUsuario.getItems().get(e1);
-//        idUsuario = id.getCodigo();
-//        nomeUsuario = id.getNome();
-//        idUnidade = id.getUnidade();
-//        System.out.println(idUsuario);
-//        System.out.println(nomeUsuario);
-//        System.out.println(idUnidade);
-//    }
 
 
     public void ListarTodos() {
@@ -76,21 +55,15 @@ public class Controller {
     @FXML
     void acaoBotao(ActionEvent event) throws IOException {
         if ((cbUsuario.getSelectionModel().getSelectedIndex() >= 0)) {
-//            DAOfactory dao = new DAOfactory(Usuario.class);
             int e1 = cbUsuario.getSelectionModel().getSelectedIndex();
             Usuario usuario = (Usuario)cbUsuario.getItems().get(e1);
             DadosUsuario usuarioSelecionado = DadosUsuario.getInstance(usuario);
-
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/centralfx.fxml"));
-//            loader.setController(new CentralController(usuario.getCodigo()));
-//            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             Parent root = FXMLLoader.load(getClass().getResource("/view/centralfx.fxml"));
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setTitle("Super Encomendas");
             stage.setScene(new Scene(root));
-            //stage.setUserData(central.nomeTextUsuario);
             stage.show();
 
         } else{
