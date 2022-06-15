@@ -64,7 +64,7 @@ public class CentralController {
 
     public void initialize() {
         DadosUsuario usuarioSelecionado = DadosUsuario.getInstance(null);
-        nomeUsuario.setText("Seja-Bem Vindo " + usuarioSelecionado.usuario.getNome());
+        nomeUsuario.setText("Seja Bem-Vindo " + usuarioSelecionado.usuario.getNome());
     }
 
 
