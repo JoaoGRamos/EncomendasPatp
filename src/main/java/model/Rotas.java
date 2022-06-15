@@ -53,10 +53,6 @@ public class Rotas implements Serializable{
 
     @Override
     public String toString() {
-        return "Rotas{" +
-                "id=" + id +
-                ", unidadeOrigem=" + unidade_origem +
-                ", unidadeDestino=" + unidade_destino +
-                '}';
+        return "Rota = " + id;
     }
 }

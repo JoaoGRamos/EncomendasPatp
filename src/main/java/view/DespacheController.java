@@ -5,11 +5,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import model.*;
 
 
+import java.io.IOException;
 import java.util.List;
 
 
@@ -22,13 +26,16 @@ public class DespacheController {
     private Button btSalvar;
 
     @FXML
+    private Button btRotas;
+
+    @FXML
+    private ComboBox<Rotas> cbRota;
+
+    @FXML
     private ComboBox<Encomendas> cbEncomenda;
 
     @FXML
     private ComboBox<Status> cbStatus;
-
-    @FXML
-    private DatePicker dpDataCheg;
 
     @FXML
     private TextField tfId;
@@ -42,6 +49,7 @@ public class DespacheController {
     private ObservableList<Encomendas> obsEncomendas;
     private ObservableList<Status> obsStatus;
     private ObservableList<Rotas> obsRotas;
+    private ObservableList<Rotas> obsRotas2;
 
     @FXML
     public void initialize(){
@@ -52,14 +60,14 @@ public class DespacheController {
         DAOfactory daoR = new DAOfactory(Rastreio.class);
         DAOfactory daoE = new DAOfactory(Encomendas.class);
         DAOfactory daoS = new DAOfactory(Status.class);
+        DAOfactory daoRo = new DAOfactory(Rotas.class);
         List<Status> listS = daoS.obterTodos();
         List<Rastreio> listR = daoR.obterTodos();
         List<Encomendas> listE = daoE.obterTodos();
+        List<Rotas> listRo = daoRo.obterTodos();
         obsRastreio = FXCollections.observableArrayList(listR);
         obsEncomendas = FXCollections.observableArrayList(listE);
-//        private String[] status = {"Em tratamento", "Em transito","Recebido na unidade","Saiu para entrega","Entregue"};
-//        List<Status> listSS = new ArrayList<>();
-//        listSS.add(1, new Status(1, "Em transito"));
+        obsRotas2 = FXCollections.observableArrayList(listRo);
         obsStatus = FXCollections.observableArrayList(listS);
     }
 
@@ -69,6 +77,7 @@ public class DespacheController {
         ListarTodos();
         cbStatus.setItems(obsStatus);
         cbEncomenda.setItems(obsEncomendas);
+        cbRota.setItems(obsRotas2);
     }
 
     @FXML
@@ -163,6 +172,15 @@ public class DespacheController {
 
         }
 
+    }
+
+    @FXML
+    void acaoRotas(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/rotasfx.fxml"));
+        Stage st = new Stage();
+        st.setTitle("Rotas");
+        st.setScene(new Scene(root));
+        st.show();
     }
 
 }
