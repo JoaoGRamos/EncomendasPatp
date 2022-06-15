@@ -7,15 +7,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import model.DadosUsuario;
-import model.Encomendas;
-import model.Rastreio;
-import model.Status;
+import model.*;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
-import static java.lang.Integer.parseInt;
 
 public class DespacheController {
 
@@ -37,11 +33,15 @@ public class DespacheController {
     @FXML
     private TextField tfId;
 
-    private int vEncomenda = 0, vStatus = 0;
+    @FXML
+    private TextField tfStatus;
+
+    private int vEncomenda = 0,eDestino = 0, eOrigem = 0, vStatus = 0;
 
     private ObservableList<Rastreio> obsRastreio;
     private ObservableList<Encomendas> obsEncomendas;
     private ObservableList<Status> obsStatus;
+    private ObservableList<Rotas> obsRotas;
 
     @FXML
     public void initialize(){
@@ -79,7 +79,24 @@ public class DespacheController {
 
     @FXML
     void acaoEncomenda(ActionEvent event) {
+        DAOfactory daoE = new DAOfactory(Encomendas.class);
+        int e1 = cbEncomenda.getSelectionModel().getSelectedIndex();
+        Encomendas id = (Encomendas) cbEncomenda.getItems().get(e1);
+        vEncomenda = id.getCodigo();
+        eDestino = id.getDestino();
+        eOrigem = id.getOrigem();
+        System.out.println(vEncomenda);
+        System.out.println(eDestino);
+        System.out.println(eOrigem);
+    }
 
+    @FXML
+    void acaoStatus(ActionEvent event) {
+        DAOfactory daoS = new DAOfactory(Status.class);
+        int e1 = cbStatus.getSelectionModel().getSelectedIndex();
+        Status id = (Status) cbStatus.getItems().get(e1);
+        vStatus = id.getId();
+        System.out.println(vStatus);
     }
 
     @FXML
@@ -87,12 +104,41 @@ public class DespacheController {
         if (!(vEncomenda == 0 || vStatus == 0)){
             try {
                 DAOfactory<Rastreio> dao = new DAOfactory<>(Rastreio.class);
+                DAOfactory<Rotas> daoRotas = new DAOfactory<>(Rotas.class);
+                List<Rotas> listR = daoRotas.obterTodos();
+                obsRotas = FXCollections.observableArrayList(listR);
+                System.out.println(listR);
                 Rastreio r1 = new Rastreio();
                 DadosUsuario usuarioSelecionado = DadosUsuario.getInstance(null);
 
-                r1.setId(parseInt(tfId.getText()));
-//                r1.setStatus();
-                dao.editar(r1);
+//                r1.setId(vEncomenda);
+//                r1.setStatus(vStatus);
+//                r1.setDestino(eDestino);
+//                r1.setOrigem(eOrigem);
+                if (vStatus == 2){//Em transito
+                    r1.setLocalizacao(usuarioSelecionado.usuario.getUnidade());
+                    for (Rotas i: obsRotas) {
+                        if(i.getUnidade_origem() == usuarioSelecionado.usuario.getUnidade()){
+//                            for (Rotas i2: obsRotas) {
+//                                if (i.getUnidade_destino() == eDestino){
+//
+//                                }
+//                            }
+                            Integer rotaId = i.getId();
+                            r1.setRota(rotaId);
+                            r1.setId(vEncomenda);
+                            r1.setStatus(vStatus);
+                            r1.setDestino(eDestino);
+                            r1.setOrigem(eOrigem);
+                            dao.editar(r1);
+                        }
+
+                    }
+                } else if (vStatus == 3) {//Recebido na unidade
+                    r1.setLocalizacao(usuarioSelecionado.usuario.getUnidade());
+//                    r1.setRota();
+                }
+//                dao.editar(r1);
 
 
                 Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
@@ -116,11 +162,6 @@ public class DespacheController {
             alerta.show();
 
         }
-
-    }
-
-    @FXML
-    void acaoStatus(ActionEvent event) {
 
     }
 

@@ -48,6 +48,7 @@ public class EditarDestinatarioController {
     @FXML
     private TextField tfId;
 
+
     private ObservableList<Destinatario> obsDestinatario;
     @FXML
     public void initialize() {

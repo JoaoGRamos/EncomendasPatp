@@ -23,7 +23,7 @@ public class Rastreio implements Serializable{
     private String dataHoraSaida;
 
     @Column
-    private String status;
+    private Integer status;
 
     @Column
     private Integer rota;
@@ -35,13 +35,7 @@ public class Rastreio implements Serializable{
 
     }
 
-    public Rastreio(Integer id, String status) {
-        super();
-        this.id = id;
-        this.status = status;
-    }
-
-    public Rastreio(Integer id, Integer origem, Integer destino, String dataHoraEntrada, String dataHoraSaida, String status, Integer localizacao) {
+    public Rastreio(Integer id, Integer origem, Integer destino, String dataHoraEntrada, String dataHoraSaida, Integer status, Integer localizacao) {
         super();
         this.id = id;
         this.origem = origem;
@@ -95,11 +89,11 @@ public class Rastreio implements Serializable{
         this.dataHoraSaida = dataHoraSaida;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -107,10 +101,6 @@ public class Rastreio implements Serializable{
 
     public void setRota(Integer rota) { this.rota = rota; }
 
-    @OneToOne()
-    @JoinTable(name="unidades",
-            joinColumns={@JoinColumn(name="localizacao",
-                    referencedColumnName="codigo")})
     public Integer getLocalizacao() {
         return localizacao;
     }

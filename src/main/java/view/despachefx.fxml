@@ -18,5 +18,6 @@
       <Label layoutX="78.0" layoutY="204.0" text="Data de Chegada:" />
       <ComboBox fx:id="cbEncomenda" layoutX="77.0" layoutY="82.0" onAction="#acaoEncomenda" prefWidth="150.0" />
       <TextField fx:id="tfId" editable="false" layoutX="235.0" layoutY="82.0" visible="false" />
+      <TextField fx:id="tfStatus" editable="false" layoutX="235.0" layoutY="153.0" visible="false" />
    </children>
 </AnchorPane>
