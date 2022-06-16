@@ -13,11 +13,11 @@
       <Label layoutX="77.0" layoutY="54.0" text="Encomenda" />
       <Label layoutX="77.0" layoutY="124.0" prefHeight="17.0" prefWidth="70.0" text="Status" />
       <ComboBox fx:id="cbStatus" layoutX="77.0" layoutY="153.0" onAction="#acaoStatus" prefHeight="25.0" prefWidth="169.0" promptText="Selecione o status" />
-      <Label layoutX="78.0" layoutY="204.0" text="Rota:" />
+      <Label fx:id="tfRota" layoutX="78.0" layoutY="204.0" text="Rota:" visible="false" />
       <ComboBox fx:id="cbEncomenda" layoutX="77.0" layoutY="82.0" onAction="#acaoEncomenda" prefHeight="25.0" prefWidth="169.0" promptText="Selecione a encomenda" />
       <TextField fx:id="tfId" editable="false" layoutX="235.0" layoutY="82.0" visible="false" />
       <TextField fx:id="tfStatus" editable="false" layoutX="235.0" layoutY="153.0" visible="false" />
-      <ComboBox fx:id="cbRota" layoutX="77.0" layoutY="231.0" prefHeight="25.0" prefWidth="169.0" promptText="Selecione a rota" />
-      <Button fx:id="btRotas" layoutX="270.0" layoutY="231.0" mnemonicParsing="false" onAction="#acaoRotas" prefHeight="25.0" prefWidth="62.0" text="Rotas" />
+      <ComboBox fx:id="cbRota" layoutX="77.0" layoutY="231.0" prefHeight="25.0" prefWidth="169.0" promptText="Selecione a rota" visible="false" />
+      <Button fx:id="btRotas" layoutX="270.0" layoutY="231.0" mnemonicParsing="false" onAction="#acaoRotas" prefHeight="25.0" prefWidth="62.0" text="Rotas" visible="false" />
    </children>
 </AnchorPane>

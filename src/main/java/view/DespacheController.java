@@ -14,6 +14,9 @@ import model.*;
 
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 
@@ -41,9 +44,13 @@ public class DespacheController {
     private TextField tfId;
 
     @FXML
+    private Label tfRota;
+
+    @FXML
     private TextField tfStatus;
 
     private int vEncomenda = 0,eDestino = 0, eOrigem = 0, vStatus = 0;
+
 
     private ObservableList<Rastreio> obsRastreio;
     private ObservableList<Encomendas> obsEncomendas;
@@ -106,6 +113,16 @@ public class DespacheController {
         Status id = (Status) cbStatus.getItems().get(e1);
         vStatus = id.getId();
         System.out.println(vStatus);
+        if(vStatus == 2 || vStatus == 4){
+            cbRota.setVisible(true);
+            btRotas.setVisible(true);
+            tfRota.setVisible(true);
+        }
+        else {
+            cbRota.setVisible(false);
+            btRotas.setVisible(false);
+            tfRota.setVisible(false);
+        }
     }
 
     @FXML
@@ -128,26 +145,26 @@ public class DespacheController {
                     r1.setLocalizacao(usuarioSelecionado.usuario.getUnidade());
                     for (Rotas i: obsRotas) {
                         if(i.getUnidade_origem() == usuarioSelecionado.usuario.getUnidade()){
-//                            for (Rotas i2: obsRotas) {
-//                                if (i.getUnidade_destino() == eDestino){
-//
-//                                }
-//                            }
+
+                            Date dataAtual = new Date();
+                            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                            String dataFormatada = dateFormat.format(dataAtual);
+
                             Integer rotaId = i.getId();
                             r1.setRota(rotaId);
                             r1.setId(vEncomenda);
                             r1.setStatus(vStatus);
                             r1.setDestino(eDestino);
                             r1.setOrigem(eOrigem);
+                            r1.setDatahora_entrada(dataFormatada);
+                            r1.setDatahora_saida(dataFormatada);
                             dao.editar(r1);
                         }
 
                     }
                 } else if (vStatus == 3) {//Recebido na unidade
                     r1.setLocalizacao(usuarioSelecionado.usuario.getUnidade());
-//                    r1.setRota();
                 }
-//                dao.editar(r1);
 
 
                 Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);

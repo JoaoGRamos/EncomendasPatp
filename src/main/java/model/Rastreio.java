@@ -2,7 +2,6 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 @Entity
 public class Rastreio implements Serializable{
@@ -16,11 +15,9 @@ public class Rastreio implements Serializable{
     @Column
     private Integer destino;
 
-    @Column
-    private String dataHoraEntrada;
+    private String datahora_entrada;
 
-    @Column
-    private String dataHoraSaida;
+    private String datahora_saida;
 
     @Column
     private Integer status;
@@ -40,8 +37,8 @@ public class Rastreio implements Serializable{
         this.id = id;
         this.origem = origem;
         this.destino = destino;
-        this.dataHoraEntrada = dataHoraEntrada;
-        this.dataHoraSaida = dataHoraSaida;
+        this.datahora_entrada = dataHoraEntrada;
+        this.datahora_saida = dataHoraSaida;
         this.status = status;
         this.rota = rota;
         this.localizacao = localizacao;
@@ -73,20 +70,20 @@ public class Rastreio implements Serializable{
         this.destino = destino;
     }
 
-    public String getDataHoraEntrada() {
-        return dataHoraEntrada;
+    public String getDatahora_entrada() {
+        return datahora_entrada;
     }
 
-    public void setDataHoraEntrada(String dataHoraEntrada) {
-        this.dataHoraEntrada = dataHoraEntrada;
+    public void setDatahora_entrada(String datahora_entrada) {
+        this.datahora_entrada = datahora_entrada;
     }
 
-    public String getDataHoraSaida() {
-        return dataHoraSaida;
+    public String getDatahora_saida() {
+        return datahora_saida;
     }
 
-    public void setDataHoraSaida(String dataHoraSaida) {
-        this.dataHoraSaida = dataHoraSaida;
+    public void setDatahora_saida(String datahora_saida) {
+        this.datahora_saida = datahora_saida;
     }
 
     public Integer getStatus() {
