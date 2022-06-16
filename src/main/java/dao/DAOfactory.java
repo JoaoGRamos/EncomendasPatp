@@ -1,7 +1,5 @@
 package dao;
 
-import model.Rastreio;
-import model.Unidades;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -22,14 +20,11 @@ public class DAOfactory<E> {
         try {
             emf = Persistence.createEntityManagerFactory("testepatp");
         } catch (Exception e){
-            //log
         }
     }
     public DAOfactory() {
         this(null);
     }
-
-
 
     public DAOfactory(Class<E> classe) {
         this.classe = classe;

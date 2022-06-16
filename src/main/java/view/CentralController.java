@@ -74,6 +74,7 @@ public class CentralController {
         Stage st = new Stage();
         st.getIcons().add(new Image("img/iconetop.png"));
         st.setTitle("Cadastrar Encomenda");
+        st.setResizable(false);
         st.setScene(new Scene(root));
         st.show();
     }
@@ -84,6 +85,7 @@ public class CentralController {
         Stage st = new Stage();
         st.getIcons().add(new Image("img/iconetop.png"));
         st.setTitle("Cadastro de Destinatario");
+        st.setResizable(false);
         st.setScene(new Scene(root));
         st.show();
 
@@ -95,6 +97,7 @@ public class CentralController {
         Stage st = new Stage();
         st.getIcons().add(new Image("img/iconetop.png"));
         st.setTitle("Cadastro de Remetente");
+        st.setResizable(false);
         st.setScene(new Scene(root));
         st.show();
 
@@ -106,6 +109,7 @@ public class CentralController {
         Stage st = new Stage();
         st.getIcons().add(new Image("img/iconetop.png"));
         st.setTitle("Editar Destinatario");
+        st.setResizable(false);
         st.setScene(new Scene(root));
         st.show();
 
@@ -117,6 +121,7 @@ public class CentralController {
         Stage st = new Stage();
         st.getIcons().add(new Image("img/iconetop.png"));
         st.setTitle("Editar Remetente");
+        st.setResizable(false);
         st.setScene(new Scene(root));
         st.show();
     }
@@ -126,6 +131,7 @@ public class CentralController {
         Stage st = new Stage();
         st.getIcons().add(new Image("img/iconetop.png"));
         st.setTitle("Despachar Encomenda");
+        st.setResizable(false);
         st.setScene(new Scene(root));
         st.show();
     }
@@ -136,6 +142,7 @@ public class CentralController {
         Stage st = new Stage();
         st.getIcons().add(new Image("img/iconetop.png"));
         st.setTitle("Rastrear Encomendas");
+        st.setResizable(false);
         st.setScene(new Scene(root));
         st.show();
     }
@@ -146,6 +153,7 @@ public class CentralController {
         Stage st = new Stage();
         st.getIcons().add(new Image("img/iconetop.png"));
         st.setTitle("Rotas");
+        st.setResizable(false);
         st.setScene(new Scene(root));
         st.show();
     }
@@ -156,6 +164,7 @@ public class CentralController {
         Stage st = new Stage();
         st.getIcons().add(new Image("img/iconetop.png"));
         st.setTitle("Sobre Rastreio de Encomendas");
+        st.setResizable(false);
         st.setScene(new Scene(root));
         st.show();
     }

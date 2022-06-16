@@ -137,10 +137,6 @@ public class DespacheController {
                 Rastreio r1 = new Rastreio();
                 DadosUsuario usuarioSelecionado = DadosUsuario.getInstance(null);
 
-//                r1.setId(vEncomenda);
-//                r1.setStatus(vStatus);
-//                r1.setDestino(eDestino);
-//                r1.setOrigem(eOrigem);
                 if (vStatus == 2){//Em transito
                     r1.setLocalizacao(usuarioSelecionado.usuario.getUnidade());
                     for (Rotas i: obsRotas) {

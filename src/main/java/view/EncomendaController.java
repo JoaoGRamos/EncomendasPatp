@@ -82,6 +82,7 @@ public class EncomendaController {
         Parent root = FXMLLoader.load(getClass().getResource("/view/destinatariofx.fxml"));
         Stage st = new Stage();
         st.setTitle("Cadastro de Destinatario");
+        st.setResizable(false);
         st.setScene(new Scene(root));
         st.show();
     }
@@ -91,6 +92,7 @@ public class EncomendaController {
         Parent root = FXMLLoader.load(getClass().getResource("/view/remetentefx.fxml"));
         Stage st = new Stage();
         st.setTitle("Cadastro de Remetente");
+        st.setResizable(false);
         st.setScene(new Scene(root));
         st.show();
     }

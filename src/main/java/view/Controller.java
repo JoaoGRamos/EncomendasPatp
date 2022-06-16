@@ -60,9 +60,9 @@ public class Controller {
             DadosUsuario usuarioSelecionado = DadosUsuario.getInstance(usuario);
 
             Parent root = FXMLLoader.load(getClass().getResource("/view/centralfx.fxml"));
-
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setTitle("Super Encomendas");
+            stage.setResizable(false);
             stage.setScene(new Scene(root));
             stage.show();
 

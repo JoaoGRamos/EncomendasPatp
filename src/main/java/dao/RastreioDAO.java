@@ -13,9 +13,6 @@ public class RastreioDAO<E> extends DAOfactory{
         super(classe);
     }
 
-    //public List<E> obterRastreio(){
-    //    return this.obterRastreio(99, 0);
-    //}
 
     public List<E> obterRastreio() {
         RastreioDaoJDBC listagemDao = new RastreioDaoJDBC(DB.getConnection());
