@@ -137,7 +137,28 @@ public class DespacheController {
                 Rastreio r1 = new Rastreio();
                 DadosUsuario usuarioSelecionado = DadosUsuario.getInstance(null);
 
-                if (vStatus == 2){//Em transito
+                if (vStatus == 2 || vStatus == 4){//Em transito
+                    r1.setLocalizacao(usuarioSelecionado.usuario.getUnidade());
+                    for (Rotas i: obsRotas) {
+                        if(i.getUnidade_origem() == usuarioSelecionado.usuario.getUnidade()){
+
+                            Date dataAtual = new Date();
+                            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                            String dataFormatada = dateFormat.format(dataAtual);
+
+                            Integer rotaId = i.getId();
+                            r1.setRota(rotaId);
+                            r1.setId(vEncomenda);
+                            r1.setStatus(vStatus);
+                            r1.setDestino(eDestino);
+                            r1.setOrigem(eOrigem);
+//                            r1.setDatahora_entrada(dataFormatada);
+                            r1.setDatahora_saida(dataFormatada);
+                            dao.editar(r1);
+                        }
+
+                    }
+                } else if (vStatus == 3|| vStatus == 1 || vStatus == 5) {//Recebido na unidade
                     r1.setLocalizacao(usuarioSelecionado.usuario.getUnidade());
                     for (Rotas i: obsRotas) {
                         if(i.getUnidade_origem() == usuarioSelecionado.usuario.getUnidade()){
@@ -153,13 +174,11 @@ public class DespacheController {
                             r1.setDestino(eDestino);
                             r1.setOrigem(eOrigem);
                             r1.setDatahora_entrada(dataFormatada);
-                            r1.setDatahora_saida(dataFormatada);
+//                            r1.setDatahora_saida(dataFormatada);
                             dao.editar(r1);
                         }
 
                     }
-                } else if (vStatus == 3) {//Recebido na unidade
-                    r1.setLocalizacao(usuarioSelecionado.usuario.getUnidade());
                 }
 
 
