@@ -46,6 +46,9 @@ public class RastreioController {
     private TableColumn<RastreioListagem, String> tcStatus;
 
     @FXML
+    private TableColumn<RastreioListagem, String> tcRota;
+
+    @FXML
     private TableView<RastreioListagem> tvRastreio;
 
     @FXML
@@ -61,6 +64,7 @@ public class RastreioController {
         tcOrigem.setCellValueFactory(new PropertyValueFactory<>("origem"));
         tcDestino.setCellValueFactory(new PropertyValueFactory<>("destino"));
         tcStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+        tcRota.setCellValueFactory(new PropertyValueFactory<>("rota"));
         tcDataEntrada.setCellValueFactory(new PropertyValueFactory<>("dataHoraEntrada"));
         tcDataSaida.setCellValueFactory(new PropertyValueFactory<>("dataHoraSaida"));
         tcLocal.setCellValueFactory(new PropertyValueFactory<>("localizacao"));

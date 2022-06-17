@@ -27,7 +27,7 @@ public class RastreioDaoJDBC implements ListagemDao {
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {
-			st = conn.prepareStatement("SELECT  r.id , u.municipio as origem, u2.municipio as destino, s.descricao as status, datahora_entrada, datahora_saida, rota, u3.municipio as localizacao\n" +
+			st = conn.prepareStatement("SELECT  r.id ,r.rota,  u.municipio as origem, u2.municipio as destino, s.descricao as status, datahora_entrada, datahora_saida, rota, u3.municipio as localizacao\n" +
 					"from rastreio r\n" +
 					"inner join unidades u on u.codigo = r.origem\n" +
 					"inner join unidades u2 on u2.codigo = r.destino\n" +

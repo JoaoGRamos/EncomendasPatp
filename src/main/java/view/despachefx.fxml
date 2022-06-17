@@ -17,7 +17,7 @@
       <ComboBox fx:id="cbEncomenda" layoutX="77.0" layoutY="82.0" onAction="#acaoEncomenda" prefHeight="25.0" prefWidth="169.0" promptText="Selecione a encomenda" />
       <TextField fx:id="tfId" editable="false" layoutX="235.0" layoutY="82.0" visible="false" />
       <TextField fx:id="tfStatus" editable="false" layoutX="235.0" layoutY="153.0" visible="false" />
-      <ComboBox fx:id="cbRota" layoutX="77.0" layoutY="231.0" prefHeight="25.0" prefWidth="169.0" promptText="Selecione a rota" visible="false" />
+      <ComboBox fx:id="cbRota" layoutX="77.0" layoutY="231.0" onAction="#selecionarRota" prefHeight="25.0" prefWidth="169.0" promptText="Selecione a rota" visible="false" />
       <Button fx:id="btRotas" layoutX="270.0" layoutY="231.0" mnemonicParsing="false" onAction="#acaoRotas" prefHeight="25.0" prefWidth="62.0" text="Rotas" visible="false" />
    </children>
 </AnchorPane>

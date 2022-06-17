@@ -3,6 +3,7 @@ package view;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -84,7 +85,7 @@ public class CentralController {
         Parent root = FXMLLoader.load(getClass().getResource("/view/destinatariofx.fxml"));
         Stage st = new Stage();
         st.getIcons().add(new Image("img/iconetop.png"));
-        st.setTitle("Cadastro de Destinatario");
+        st.setTitle("Cadastrar Destinatario");
         st.setResizable(false);
         st.setScene(new Scene(root));
         st.show();
@@ -96,7 +97,7 @@ public class CentralController {
         Parent root = FXMLLoader.load(getClass().getResource("/view/remetentefx.fxml"));
         Stage st = new Stage();
         st.getIcons().add(new Image("img/iconetop.png"));
-        st.setTitle("Cadastro de Remetente");
+        st.setTitle("Cadastrar Remetente");
         st.setResizable(false);
         st.setScene(new Scene(root));
         st.show();
@@ -163,9 +164,10 @@ public class CentralController {
         Parent root = FXMLLoader.load(getClass().getResource("/view/sobrefx.fxml"));
         Stage st = new Stage();
         st.getIcons().add(new Image("img/iconetop.png"));
-        st.setTitle("Sobre Rastreio de Encomendas");
+        st.setTitle("Sobre Super Encomendas");
         st.setResizable(false);
         st.setScene(new Scene(root));
         st.show();
     }
+
 }

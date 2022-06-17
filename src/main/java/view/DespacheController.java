@@ -49,14 +49,15 @@ public class DespacheController {
     @FXML
     private TextField tfStatus;
 
-    private int vEncomenda = 0,eDestino = 0, eOrigem = 0, vStatus = 0;
+    private int vEncomenda = 0,eDestino = 0, eOrigem = 0, vStatus = 0, vRota = 0;
+    private String sDataEntrada, sDataSaida;
+    private Rotas rotaID;
 
 
     private ObservableList<Rastreio> obsRastreio;
     private ObservableList<Encomendas> obsEncomendas;
     private ObservableList<Status> obsStatus;
     private ObservableList<Rotas> obsRotas;
-    private ObservableList<Rotas> obsRotas2;
 
     @FXML
     public void initialize(){
@@ -74,7 +75,7 @@ public class DespacheController {
         List<Rotas> listRo = daoRo.obterTodos();
         obsRastreio = FXCollections.observableArrayList(listR);
         obsEncomendas = FXCollections.observableArrayList(listE);
-        obsRotas2 = FXCollections.observableArrayList(listRo);
+        obsRotas = FXCollections.observableArrayList(listRo);
         obsStatus = FXCollections.observableArrayList(listS);
     }
 
@@ -84,7 +85,7 @@ public class DespacheController {
         ListarTodos();
         cbStatus.setItems(obsStatus);
         cbEncomenda.setItems(obsEncomendas);
-        cbRota.setItems(obsRotas2);
+        cbRota.setItems(obsRotas);
     }
 
     @FXML
@@ -113,7 +114,7 @@ public class DespacheController {
         Status id = (Status) cbStatus.getItems().get(e1);
         vStatus = id.getId();
         System.out.println(vStatus);
-        if(vStatus == 2 || vStatus == 4){
+        if(vStatus == 2){
             cbRota.setVisible(true);
             btRotas.setVisible(true);
             tfRota.setVisible(true);
@@ -126,85 +127,95 @@ public class DespacheController {
     }
 
     @FXML
+    void selecionarRota(ActionEvent event) {
+        DAOfactory daoRo = new DAOfactory(Rotas.class);
+        DadosUsuario usuarioSelecionado = DadosUsuario.getInstance(null);
+        int e1 = cbRota.getSelectionModel().getSelectedIndex();
+        rotaID = (Rotas) cbRota.getItems().get(e1);
+        if(rotaID.getUnidade_origem() == usuarioSelecionado.usuario.getUnidade() || rotaID.getUnidade_destino() == usuarioSelecionado.usuario.getUnidade()){
+            vRota = rotaID.getId();
+
+        }else {
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Aviso");
+            alerta.setHeaderText("Sua unidade não está nesta rota!");
+            alerta.setContentText("Selecione uma rota valida para a sua unidade, caso tenha duvida em qual rota selecionar clique no botão 'Rotas' ao lado.");
+            alerta.show();
+            vRota = 0;
+        }
+
+    }
+
+    @FXML
     void acaoSalvar(ActionEvent event) {
-        if (!(vEncomenda == 0 || vStatus == 0)){
+        if (!(vEncomenda == 0 || vStatus == 0)) {
             try {
                 DAOfactory<Rastreio> dao = new DAOfactory<>(Rastreio.class);
                 DAOfactory<Rotas> daoRotas = new DAOfactory<>(Rotas.class);
                 List<Rotas> listR = daoRotas.obterTodos();
                 obsRotas = FXCollections.observableArrayList(listR);
-                System.out.println(listR);
                 Rastreio r1 = new Rastreio();
                 DadosUsuario usuarioSelecionado = DadosUsuario.getInstance(null);
 
-                if (vStatus == 2 || vStatus == 4){//Em transito
+
+                if (vStatus == 2 || vStatus == 4) {//Em transito
                     r1.setLocalizacao(usuarioSelecionado.usuario.getUnidade());
-                    for (Rotas i: obsRotas) {
-                        if(i.getUnidade_origem() == usuarioSelecionado.usuario.getUnidade()){
+                    Date dataAtual = new Date();
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                    String dataFormatada = dateFormat.format(dataAtual);
 
-                            Date dataAtual = new Date();
-                            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-                            String dataFormatada = dateFormat.format(dataAtual);
+                    r1.setRota(vRota);
+                    r1.setId(vEncomenda);
+                    r1.setStatus(vStatus);
+                    r1.setDestino(eDestino);
+                    r1.setOrigem(eOrigem);
+                    r1.setDatahora_entrada(sDataEntrada);
+                    r1.setDatahora_saida(dataFormatada);
+                    dao.editar(r1);
 
-                            Integer rotaId = i.getId();
-                            r1.setRota(rotaId);
-                            r1.setId(vEncomenda);
-                            r1.setStatus(vStatus);
-                            r1.setDestino(eDestino);
-                            r1.setOrigem(eOrigem);
-//                            r1.setDatahora_entrada(dataFormatada);
-                            r1.setDatahora_saida(dataFormatada);
-                            dao.editar(r1);
-                        }
-
-                    }
-                } else if (vStatus == 3|| vStatus == 1 || vStatus == 5) {//Recebido na unidade
+                } else if (vStatus == 3 || vStatus == 1 || vStatus == 5) {//Recebido na unidade
                     r1.setLocalizacao(usuarioSelecionado.usuario.getUnidade());
-                    for (Rotas i: obsRotas) {
-                        if(i.getUnidade_origem() == usuarioSelecionado.usuario.getUnidade()){
 
-                            Date dataAtual = new Date();
-                            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-                            String dataFormatada = dateFormat.format(dataAtual);
 
-                            Integer rotaId = i.getId();
-                            r1.setRota(rotaId);
-                            r1.setId(vEncomenda);
-                            r1.setStatus(vStatus);
-                            r1.setDestino(eDestino);
-                            r1.setOrigem(eOrigem);
-                            r1.setDatahora_entrada(dataFormatada);
-//                            r1.setDatahora_saida(dataFormatada);
-                            dao.editar(r1);
-                        }
+                    Date dataAtual = new Date();
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                    String dataFormatada = dateFormat.format(dataAtual);
 
-                    }
+                    r1.setRota(vRota);
+                    r1.setId(vEncomenda);
+                    r1.setStatus(vStatus);
+                    r1.setDestino(eDestino);
+                    r1.setOrigem(eOrigem);
+                    r1.setDatahora_entrada(dataFormatada);
+                    r1.setDatahora_saida(sDataSaida);
+                    dao.editar(r1);
                 }
-
 
                 Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
                 alerta.setTitle("Aviso");
                 alerta.setHeaderText("Dados salvos com sucesso!");
                 alerta.show();
+            }
 
-            } catch (Exception e) {
+                catch(Exception e){
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
                 alerta.setTitle("Aviso");
                 alerta.setHeaderText("Os dados não foram salvos no banco!");
                 alerta.show();
             }
 
-        }
-        else {
-            Alert alerta = new Alert(Alert.AlertType.ERROR);
-            alerta.setTitle("Aviso");
-            alerta.setHeaderText("Os dados não foram salvos no banco!");
-            alerta.setContentText("Nenhum campo deve estar vazio!");
-            alerta.show();
+        }else{
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setTitle("Aviso");
+                alerta.setHeaderText("Os dados não foram salvos no banco!");
+                alerta.setContentText("Nenhum campo deve estar vazio!");
+                alerta.show();
 
-        }
+            }
+
 
     }
+
 
     @FXML
     void acaoRotas(ActionEvent event) throws IOException {

@@ -51,7 +51,6 @@ public class EncomendaController {
     public void initialize(){
         CarregarTodos();
         PegarData();
-        System.out.println(data);
     }
 
     public void PegarData(){
@@ -103,7 +102,6 @@ public class EncomendaController {
         int e1 = cbDestinatario.getSelectionModel().getSelectedIndex();
         Destinatario id = (Destinatario) cbDestinatario.getItems().get(e1);
         idDestinatario = id.getId();
-        System.out.println(idDestinatario);
 
     }
 
@@ -113,7 +111,6 @@ public class EncomendaController {
         int e1 = cbDestino.getSelectionModel().getSelectedIndex();
         Unidades id = (Unidades) cbDestino.getItems().get(e1);
         idDestino = id.getCodigo();
-        System.out.println(idDestino);
     }
 
     @FXML
@@ -122,7 +119,6 @@ public class EncomendaController {
         int e1 = cbRemetente.getSelectionModel().getSelectedIndex();
         Remetente id = (Remetente) cbRemetente.getItems().get(e1);
         idRemetente = id.getId();
-        System.out.println(idRemetente);
     }
 
     @FXML

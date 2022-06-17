@@ -62,7 +62,7 @@ public class Controller {
             Parent root = FXMLLoader.load(getClass().getResource("/view/centralfx.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setTitle("Super Encomendas");
-            stage.setResizable(false);
+            stage.setResizable(true);
             stage.setScene(new Scene(root));
             stage.show();
 
