@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="277.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Controller">
+	<children>
+		<AnchorPane prefHeight="238.0" prefWidth="347.0">
+			<children>
+				<Label fx:id="label" layoutX="160.0" layoutY="61.0" text="Bem-Vindo" />
+				<ComboBox fx:id="cbUsuario" layoutX="115.0" layoutY="119.0" prefWidth="150.0" promptText="Selecione o Usuario" />
+				<Button fx:id="btEntrar" layoutX="166.0" layoutY="185.0" mnemonicParsing="false" onAction="#acaoBotao" text="Entrar" />
+			</children>
+		</AnchorPane>
+	</children>
+</VBox>
