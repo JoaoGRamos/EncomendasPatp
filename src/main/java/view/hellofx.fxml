@@ -6,13 +6,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="277.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Controller">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="277.0" prefWidth="380.0" style="-fx-background-color: linear-gradient(to right, rgb(67, 206, 162), rgb(24, 90, 157));" styleClass="view" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Controller">
 	<children>
-		<AnchorPane prefHeight="238.0" prefWidth="347.0">
+		<AnchorPane prefHeight="238.0" prefWidth="347.0" style="-fx-background-color: linear-gradient(to right, rgb(67, 206, 162), rgb(24, 90, 157));">
 			<children>
-				<Label fx:id="label" layoutX="160.0" layoutY="61.0" text="Bem-Vindo" />
-				<ComboBox fx:id="cbUsuario" layoutX="115.0" layoutY="119.0" prefWidth="150.0" promptText="Selecione o Usuario" />
-				<Button fx:id="btEntrar" layoutX="166.0" layoutY="185.0" mnemonicParsing="false" onAction="#acaoBotao" text="Entrar" />
+				<Label fx:id="label" layoutX="148.0" layoutY="63.0" style="-fx-text-fill: #FFF;" styleClass="view_text" text="Bem-Vindo" textFill="#4a4848" />
+				<ComboBox fx:id="cbUsuario" layoutX="116.0" layoutY="113.0" prefWidth="150.0" promptText="Selecione o Usuario" style="-fx-background-radius: 10;" />
+				<Button fx:id="btEntrar" layoutX="157.0" layoutY="186.0" mnemonicParsing="false" onAction="#acaoBotao" style="-fx-background-radius: 10;" text="Entrar" />
 			</children>
 		</AnchorPane>
 	</children>
