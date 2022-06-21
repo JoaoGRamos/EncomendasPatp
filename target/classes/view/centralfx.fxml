@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CentralController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to right, rgb(67, 206, 162), rgb(24, 90, 157));;" styleClass="view-border" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CentralController">
    <top>
-      <MenuBar fx:id="mbPrincipal" BorderPane.alignment="CENTER">
+      <MenuBar fx:id="mbPrincipal" style="-fx-background-color: #FFF;" styleClass="view" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Encomendas">
             <items>
@@ -43,7 +43,7 @@
       </MenuBar>
    </top>
    <bottom>
-      <Label fx:id="nomeUsuario" alignment="BASELINE_RIGHT" prefHeight="70.0" prefWidth="501.0" text="Seja Bem-Vindo" BorderPane.alignment="CENTER">
+      <Label fx:id="nomeUsuario" alignment="BASELINE_RIGHT" prefHeight="70.0" prefWidth="501.0" text="Seja Bem-Vindo" textFill="WHITE" BorderPane.alignment="CENTER">
          <padding>
             <Insets bottom="40.0" />
          </padding>

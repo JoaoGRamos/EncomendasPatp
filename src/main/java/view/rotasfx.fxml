@@ -9,7 +9,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RotasController">
    <children>
-      <AnchorPane prefHeight="402.0" prefWidth="600.0">
+      <AnchorPane prefHeight="402.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to right, rgb(67, 206, 162), rgb(24, 90, 157));">
          <children>
             <TableView fx:id="tvRotas" layoutX="15.0" layoutY="37.0" prefHeight="302.0" prefWidth="571.0">
               <columns>
@@ -18,7 +18,7 @@
                   <TableColumn fx:id="tcDestino" prefWidth="261.0" text="Destino" />
               </columns>
             </TableView>
-            <Button fx:id="btVoltar" layoutX="509.0" layoutY="354.0" mnemonicParsing="false" onAction="#acaoVoltar" prefHeight="25.0" prefWidth="64.0" text="Voltar" />
+            <Button fx:id="btVoltar" layoutX="481.0" layoutY="348.0" mnemonicParsing="false" onAction="#acaoVoltar" prefHeight="38.0" prefWidth="87.0" style="-fx-background-radius: 10;" text="Voltar" />
             <Label layoutX="15.0" layoutY="14.0" text="Lista de Rotas:" />
          </children>
       </AnchorPane>
