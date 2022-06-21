@@ -1,0 +1,26 @@
+.view-border{
+	-fx-border-color: linear-gradient(to right, rgb(67, 206, 162), rgb(24, 90, 157));
+}
+	
+
+.view{
+	-fx-background-color:linear-gradient(to right, rgb(67, 206, 162), rgb(24, 90, 157));
+
+}	
+
+.view_combo{
+	
+	-fx-monospace-font:monospace;
+}
+
+.view_boton{
+	
+	-fx-text-font:monospace;
+}
+.view_txt{
+	fx-text-fill:#ffffff;
+}
+
+.view_menu{
+	-fx-text-fill:#000;
+}
